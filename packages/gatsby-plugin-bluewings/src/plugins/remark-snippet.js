@@ -115,6 +115,7 @@ module.exports = ({
           // if (isFirst÷)
           const open = openFn({
             props: annot,
+            ...annot,
             isFirst,
           });
 

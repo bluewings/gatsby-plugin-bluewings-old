@@ -1,7 +1,7 @@
 import * as React from 'react';
-import styles from './GridRow.module.scss';
+import styles from '../Grid.module.scss';
 
-function GridRow(props: any) {
+function Row(props: any) {
   return (
     <div
       className={styles.row}
@@ -12,4 +12,4 @@ function GridRow(props: any) {
   );
 }
 
-export default GridRow;
+export default Row;
