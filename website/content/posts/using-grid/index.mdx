@@ -6,17 +6,23 @@ max_width: 60rem
 
 import Dummy from "./Dummy.jsx"
 
-## section 1
+[](@grid,layoutFixed)
 
-[](@grid.smpl,layoutFixed)
+```js
+import html2canvas from "html2canvas"
 
-[](@section)
+html2canvas(element, { backgroundColor: null }).then(canvas => {
+  document.body.appendChild(canvas)
+})
 
-## grid 3
+html2canvas(element, { backgroundColor: null }).then(canvas => {
+  document.body.appendChild(canvas)
+})
 
-[](@section)
-
-## grid 4
+html2canvas(element, { backgroundColor: null }).then(canvas => {
+  document.body.appendChild(canvas)
+})
+```
 
 [](@grid)
 
@@ -24,14 +30,44 @@ import Dummy from "./Dummy.jsx"
 
 [](@gridend)
 
-# smpl
+[](@grid)
 
-[](@grid.smpl,layoutFixed)
+```js
+import html2canvas from "html2canvas"
 
-## grid 1
+html2canvas(element, { backgroundColor: null }).then(canvas => {
+  document.body.appendChild(canvas)
+})
+
+html2canvas(element, { backgroundColor: null }).then(canvas => {
+  document.body.appendChild(canvas)
+})
+
+html2canvas(element, { backgroundColor: null }).then(canvas => {
+  document.body.appendChild(canvas)
+})
+```
 
 [](@grid)
 
-## grid 2
+<Dummy text="grid" />
 
 [](@gridend)
+
+other contents 1
+
+[](@grid-2)
+
+<Dummy text="grid-2" />
+
+[](@grid)
+
+<Dummy text="grid" />
+
+[](@grid-4)
+
+<Dummy text="grid-4" />
+
+[](@gridend)
+
+other contents 2
