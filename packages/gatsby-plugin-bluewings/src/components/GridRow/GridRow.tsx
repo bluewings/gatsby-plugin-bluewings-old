@@ -4,8 +4,8 @@ import styles from './GridRow.module.scss';
 function GridRow(props: any) {
   return (
     <div
-      className={styles.root}
-      style={{ border: '5px dashed red', padding: 10, margin: 10 }}
+      className={styles.row}
+      // style={{ border: '5px dashed red', padding: 10, margin: 10 }}
     >
       {props.children}
     </div>

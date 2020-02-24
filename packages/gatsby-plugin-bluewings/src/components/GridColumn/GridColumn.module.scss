@@ -1,4 +1,21 @@
 .root {
-  background: lightyellow;
-  padding: 10px;
+
+  $gutter: 42px;
+
+
+  $base-margin: 21px;
+  $padding-left: $gutter - $base-margin;
+  $padding-right: $base-margin;
+  flex-basis: 0;
+  flex-grow: 1;
+  padding-left: $padding-left;
+  padding-right: $padding-right;
+  $base-width: 100% / 12;
+
+  @for $i from 1 through 12 {
+    &.grid_#{$i} {
+      flex: 0 0 ($base-width * $i);
+      max-width: 0 0 ($base-width * $i);
+    }
+  }
 }
