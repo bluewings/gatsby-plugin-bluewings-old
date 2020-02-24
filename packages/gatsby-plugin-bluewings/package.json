@@ -1,18 +1,23 @@
 {
   "name": "gatsby-plugin-bluewings",
   "version": "1.0.0",
-  "description": "",
+  "author": {
+    "name": "Sung Won Cha",
+    "email": "mygenie3@naver.com"
+  },
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
   "types": "dist/index.d.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prestart": "rm -rf ./dist && rm -rf tsconfig.tsbuildinfo && cd ./src && copy ./gatsby-* ../dist && copy ./tailwind.* ../dist && copy ./plugins/* ../dist",
-    "start": "rollup -c --watch"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bluewings/gatsby-plugin-bluewings.git",
+    "directory": "packages/gatsby-plugin-bluewings"
   },
-  "author": "",
-  "license": "ISC",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@mdx-js/tag": "^0.20.3",
@@ -43,8 +48,13 @@
     "rollup-plugin-typescript2": "^0.26.0",
     "typescript": "^3.8.2"
   },
+  "scripts": {
+    "prestart": "rm -rf ./dist && rm -rf tsconfig.tsbuildinfo && cd ./src && copy ./gatsby-* ../dist && copy ./tailwind.* ../dist && copy ./plugins/* ../dist",
+    "start": "rollup -c --watch"
+  },
   "files": [
     "dist",
     "README.md"
-  ]
+  ],
+  "license": "MIT"
 }
