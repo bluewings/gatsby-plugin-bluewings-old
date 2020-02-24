@@ -1,0 +1,47 @@
+{
+  "name": "gatsby-plugin-bluewings",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
+  "jsnext:main": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prestart": "rm -rf ./dist && rm -rf tsconfig.tsbuildinfo && cd ./src && copy ./gatsby-* ../dist && copy ./tailwind.* ../dist && copy ./plugins/* ../dist",
+    "start": "rollup -c --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@emotion/core": "^10.0.27",
+    "@mdx-js/tag": "^0.20.3",
+    "gatsby-plugin-mdx": "^1.0.73",
+    "gatsby-plugin-sass": "^2.1.29",
+    "gatsby-remark-copy-linked-files": "^2.1.37",
+    "gatsby-remark-images": "^3.1.44",
+    "gatsby-remark-smartypants": "^2.1.21",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "remark-slug": "^5.1.2",
+    "tailwindcss": "^1.2.0"
+  },
+  "peerDependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-image": "^2.0.4",
+    "@types/classnames": "^2.2.9",
+    "@types/lodash-es": "^4.17.3",
+    "@types/react": "^16.9.22",
+    "@types/react-dom": "^16.9.5",
+    "copy": "^0.3.2",
+    "node-sass": "^4.13.1",
+    "rollup": "^1.31.1",
+    "rollup-plugin-postcss": "^2.1.1",
+    "rollup-plugin-pug-as-jsx": "^1.0.9",
+    "rollup-plugin-typescript2": "^0.26.0",
+    "typescript": "^3.8.2"
+  }
+}
