@@ -25,3 +25,12 @@ $gutter: 42px;
     }
   }
 }
+
+.layout_fixed_outer {
+  position: relative;
+}
+
+.layout_fixed_inner {
+  position: absolute;
+  width: 100%;
+}

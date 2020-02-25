@@ -1,7 +1,5 @@
 module.exports = {
-  plugins: [
-    
-    {
+  plugins: [{
       resolve: `gatsby-theme-blog`,
       options: {},
     },
@@ -17,8 +15,7 @@ module.exports = {
     title: `My Blog Title`,
     author: `My Name`,
     description: `My site description...`,
-    social: [
-      {
+    social: [{
         name: `twitter`,
         url: `https://twitter.com/gatsbyjs`,
       },

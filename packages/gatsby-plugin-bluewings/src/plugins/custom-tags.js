@@ -17,8 +17,7 @@ const grid = {
       value: `
 
       ${isFirst ? '<Bluewings.Row>' : ''}
-      <h1>test</h1>
-      <pre>{\`${JSON.stringify(all, null, 2)}\`}</pre>
+      
 <Bluewings.Column args={${JSON.stringify(args)}} layoutFixed={${!!layoutFixed}}>
 
 
