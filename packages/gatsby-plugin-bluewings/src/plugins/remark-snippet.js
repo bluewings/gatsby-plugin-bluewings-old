@@ -121,8 +121,8 @@ module.exports = ({
 
           // isss
           // const close = customTags[annot.tag].close(annot);
-          console.log('>> annot.tag:', annot.tag)
-          console.log('case 1')
+          // console.log('>> annot.tag:', annot.tag)
+          // console.log('case 1')
           context.stack = [{
               // ...close,
               closeFn: customTags[annot.tag].close,
@@ -130,7 +130,7 @@ module.exports = ({
             },
             ...context.stack,
           ];
-          console.log('case 1-1')
+          // console.log('case 1-1')
 
           openings = [open];
         }
@@ -171,9 +171,9 @@ module.exports = ({
     // console.log('');
     // console.log('');
 
-    console.log('>>> C H I L D R E N');
-    console.log(markdownAST.children.filter(e => e.type === 'jsx').map(e => e.value).join('\n'));
-    console.log('')
+    // console.log('>>> C H I L D R E N');
+    // console.log(markdownAST.children.filter(e => e.type === 'jsx').map(e => e.value).join('\n'));
+    // console.log('')
     // console.log('')
     // console.log('')
     resolve(markdownAST);
