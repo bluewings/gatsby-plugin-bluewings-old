@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-bluewings",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "author": {
     "name": "Sung Won Cha",
     "email": "mygenie3@naver.com"
@@ -21,14 +21,18 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@mdx-js/tag": "^0.20.3",
+    "@types/react-json-tree": "^0.6.11",
     "classnames": "^2.2.6",
     "gatsby-plugin-mdx": "^1.0.73",
     "gatsby-plugin-sass": "^2.1.29",
     "gatsby-remark-copy-linked-files": "^2.1.37",
     "gatsby-remark-images": "^3.1.44",
     "gatsby-remark-smartypants": "^2.1.21",
+    "intersection-observer": "^0.7.0",
+    "react-json-tree": "^0.11.2",
     "react-use": "^13.26.2",
     "remark-slug": "^5.1.2",
+    "scrollama": "^2.2.0",
     "tailwindcss": "^1.2.0"
   },
   "peerDependencies": {

@@ -33,7 +33,8 @@ module.exports = options => {
 
       {
         // resolve: `${__dirname}/node_modules/gatsby-plugin-sass`,
-        resolve: `${__dirname}/../node_modules/gatsby-plugin-sass`,
+        // resolve: `${__dirname}/../node_modules/gatsby-plugin-sass`,
+        resolve: 'gatsby-plugin-sass',
         options: {
           postCssPlugins: [tailwindcss(`${__dirname}/tailwind.config.js`)],
         },

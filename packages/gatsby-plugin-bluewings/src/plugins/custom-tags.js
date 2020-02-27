@@ -44,12 +44,13 @@ const grid = {
 
 const section = {
   import: null,
-  open: {
-    type: 'jsx',
-    value: `
-<section style={{ border: "2px solid red", marginBottom: "1rem" }} >
-    
-    `
+  open: ({
+    className
+  }) => {
+    return {
+      type: 'jsx',
+      value: `<section className="${className}">`
+    }
   },
   close: {
     type: 'jsx',
@@ -57,9 +58,24 @@ const section = {
   }
 }
 
+const context = {
+  import: `import { Bluewings } from 'gatsby-plugin-bluewings'`,
+  open: {
+    type: 'jsx',
+    value: '<Bluewings.DataProvider>'
+  },
+  close: {
+    type: 'jsx',
+    value: '</Bluewings.DataProvider>',
+  }
+}
+
+// next = <DataProvider>{next}</DataProvider>;
+
 const customTags = {
   grid,
   section,
+  context,
 }
 
 module.exports = customTags;

@@ -10,9 +10,13 @@
   },
   "dependencies": {
     "gatsby": "^2.19.21",
-    "gatsby-plugin-bluewings": "^0.2.0",
+    "gatsby-plugin-bluewings": "^0.2.2",
     "gatsby-theme-blog": "^1.2.35",
+    "intersection-observer": "^0.7.0",
+    "node-sass": "^4.13.1",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-json-tree": "^0.11.2",
+    "scrollama": "^2.2.0"
   }
 }

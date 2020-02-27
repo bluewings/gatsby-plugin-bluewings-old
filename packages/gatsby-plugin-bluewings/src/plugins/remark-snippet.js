@@ -172,7 +172,7 @@ module.exports = ({
     // console.log('');
 
     console.log('>>> C H I L D R E N');
-    console.log(markdownAST.children.filter(e => e.type === 'jsx').map(e => e.value));
+    console.log(markdownAST.children.filter(e => e.type === 'jsx').map(e => e.value).join('\n'));
     console.log('')
     // console.log('')
     // console.log('')

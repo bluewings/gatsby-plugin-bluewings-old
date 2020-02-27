@@ -1,9 +1,14 @@
-import Grid__Row from './components/Grid/Row';
-import Grid__Column from './components/Grid/Column';
+import Row from './components/Grid/Row';
+import Column from './components/Grid/Column';
+import Context from './components/Context';
+import Scrollama from './components/Scrollama';
+import JsonTree from './components/JsonTree';
+import { Provider as DataProvider } from './utils/context';
 
 const Bluewings: any = {};
 
-Bluewings.Row = Grid__Row;
-Bluewings.Column = Grid__Column;
+Bluewings.Row = Row;
+Bluewings.Column = Column;
+Bluewings.DataProvider = DataProvider;
 
-export { Bluewings, Grid__Row, Grid__Column };
+export { Bluewings, Context, Scrollama, JsonTree };
