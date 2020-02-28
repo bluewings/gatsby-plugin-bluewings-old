@@ -42,6 +42,16 @@ const onCreateNode = ({
     return parent && parent.internal && parent.internal.type;
   };
 
+  console.log(node.internal.type);
+
+  if (node.internal.type === 'Site') {
+    console.log(node);
+
+    if (node.siteMetadata && !node.siteMetadata.langKeyDefault) {
+      node.siteMetadata.langKeyDefault = options.langKeyDefault;
+    }
+  }
+
   const getFilePath = (node) => {
     switch (node.internal.type) {
       case 'File':

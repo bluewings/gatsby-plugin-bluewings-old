@@ -14,14 +14,21 @@ const withDefaults = (themeOptions) => {
   };
 };
 
-const PostTemplate = require.resolve(
-  `gatsby-theme-blog-core/src/templates/post-query`,
-);
+const PostTemplate = require.resolve(`./src/templates/post-query`);
 const PostsTemplate = require.resolve(`./src/templates/posts-query`);
 
-const createPages = async ({ graphql, actions, reporter }, themeOptions) => {
-  const { createPage } = actions;
-  const { basePath, langKeyDefault } = withDefaults(themeOptions);
+const createPages = async ({
+  graphql,
+  actions,
+  reporter
+}, themeOptions) => {
+  const {
+    createPage
+  } = actions;
+  const {
+    basePath,
+    langKeyDefault
+  } = withDefaults(themeOptions);
 
   const result = await graphql(`
     {
@@ -47,7 +54,9 @@ const createPages = async ({ graphql, actions, reporter }, themeOptions) => {
   }
 
   // // Create Posts and Post pages.
-  const { allBlogPost } = result.data;
+  const {
+    allBlogPost
+  } = result.data;
   const posts = allBlogPost.edges;
 
   // const translationsByDirectory = posts.reduce((accum, post) => {
@@ -79,10 +88,14 @@ const createPages = async ({ graphql, actions, reporter }, themeOptions) => {
     }, {}),
   ).forEach(([langKey, posts]) => {
     // Create a page for each Post
-    posts.forEach(({ node: post }, index) => {
+    posts.forEach(({
+      node: post
+    }, index) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1];
       const next = index === 0 ? null : posts[index - 1];
-      const { slug } = post;
+      const {
+        slug
+      } = post;
       createPage({
         path: slug,
         component: PostTemplate,
@@ -96,9 +109,9 @@ const createPages = async ({ graphql, actions, reporter }, themeOptions) => {
 
     // // Create the Posts page
     const path =
-      langKey === langKeyDefault
-        ? basePath
-        : `${basePath.replace(/\/$/, '')}/${langKey}`;
+      langKey === langKeyDefault ?
+      basePath :
+      `${basePath.replace(/\/$/, '')}/${langKey}`;
 
     console.log('>> createPage', path);
     createPage({
@@ -122,4 +135,6 @@ const createPages = async ({ graphql, actions, reporter }, themeOptions) => {
   // })
 };
 
-export { createPages };
+export {
+  createPages
+};

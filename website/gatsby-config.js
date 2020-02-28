@@ -7,6 +7,7 @@ module.exports = {
       resolve: 'gatsby-plugin-bluewings',
       options: {
         wow: 'test',
+        // langKeyDefault: '',
       },
     },
     "gatsby-theme-waves",
