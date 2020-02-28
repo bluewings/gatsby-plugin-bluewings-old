@@ -5,12 +5,22 @@ const withDefaults = (themeOptions: any) => {
   const contentPath = themeOptions.contentPath || `content/posts`;
   const assetPath = themeOptions.assetPath || `content/assets`;
   const langKeyDefault = themeOptions.langKeyDefault || `en`;
-
+  let editOnGithub: string | null = null;
+  if (themeOptions.editOnGithub) {
+    const { url, directory = '', branch = 'master' } = themeOptions.editOnGithub;
+    if (url) {
+      editOnGithub = [url.replace(/\/$/, ''), 'edit', branch, directory.replace(/(^\/|\/$)/g, '')]
+        .filter((e) => e)
+        .join('/');
+    }
+  }
   return {
+    ...themeOptions,
     basePath,
     contentPath,
     assetPath,
     langKeyDefault,
+    editOnGithub,
   };
 };
 
@@ -19,7 +29,7 @@ const PostsTemplate = require.resolve(`./src/templates/posts-query`);
 
 const createPages = async ({ graphql, actions, reporter }: any, themeOptions: any) => {
   const { createPage } = actions;
-  const { basePath, langKeyDefault } = withDefaults(themeOptions);
+  const { basePath, langKeyDefault, editOnGithub } = withDefaults(themeOptions);
 
   const result = await graphql(`
     {
@@ -44,6 +54,12 @@ const createPages = async ({ graphql, actions, reporter }: any, themeOptions: an
   // Create Posts and Post pages.
   const { allBlogPost } = result.data;
 
+  const getOrigin = (slug: string, langKey: string) => slug.replace(new RegExp('^/' + langKey), '');
+  const translationsDict: any = allBlogPost.edges.reduce((accum: any, { node: { slug, fields: { langKey } } }: any) => {
+    const origin = getOrigin(slug, langKey);
+    return { ...accum, [origin]: [...(accum[origin] || []), { origin, slug, langKey }] };
+  }, {});
+
   // group posts by langKey
   Object.entries(
     allBlogPost.edges.reduce(
@@ -66,6 +82,9 @@ const createPages = async ({ graphql, actions, reporter }: any, themeOptions: an
           id: post.id,
           previousId: previous ? previous.node.id : undefined,
           nextId: next ? next.node.id : undefined,
+          translations: translationsDict[getOrigin(slug, langKey)] || [],
+          editOnGithub,
+          langKeyDefault,
         },
       });
     });

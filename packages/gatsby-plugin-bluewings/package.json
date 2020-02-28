@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-bluewings",
-  "version": "0.3.4",
+  "version": "0.3.15",
   "author": {
     "name": "Sung Won Cha",
     "email": "mygenie3@naver.com"
@@ -23,6 +23,7 @@
     "@mdx-js/tag": "^0.20.3",
     "@types/react-json-tree": "^0.6.11",
     "classnames": "^2.2.6",
+    "deepmerge": "^4.2.2",
     "folktale": "^2.3.2",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-mdx": "^1.0.73",
@@ -38,7 +39,8 @@
     "react-use": "^13.26.2",
     "remark-slug": "^5.1.2",
     "scrollama": "^2.2.0",
-    "tailwindcss": "^1.2.0"
+    "tailwindcss": "^1.2.0",
+    "typeface-montserrat": "0.0.75"
   },
   "peerDependencies": {
     "react": "^16.12.0",

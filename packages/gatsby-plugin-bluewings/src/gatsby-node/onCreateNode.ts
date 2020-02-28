@@ -34,11 +34,11 @@ const onCreateNode = ({ node, actions, getNode }: any, pluginOptions: any) => {
     return parent && parent.internal && parent.internal.type;
   };
 
-  if (node.internal.type === 'Site') {
-    if (node.siteMetadata && !node.siteMetadata.langKeyDefault) {
-      node.siteMetadata.langKeyDefault = options.langKeyDefault;
-    }
-  }
+  // if (node.internal.type === 'Site') {
+  //   if (node.siteMetadata && !node.siteMetadata.langKeyDefault) {
+  //     node.siteMetadata.langKeyDefault = options.langKeyDefault;
+  //   }
+  // }
 
   const getFilePath = (node: any) => {
     switch (node.internal.type) {
@@ -68,10 +68,27 @@ const onCreateNode = ({ node, actions, getNode }: any, pluginOptions: any) => {
         const { createNodeField } = actions;
 
         if (node.internal.type === 'MarkdownRemark' || node.internal.type === 'Mdx' || getParentType(node) === 'Mdx') {
+          const filePath_ = (options.pagesPaths || []).reduce((prev: any, e: string) => {
+            if (!prev) {
+              const chunk = filePath.split(e);
+              return chunk.length > 1 ? e + chunk.pop() : null;
+            }
+            return prev;
+          }, null);
           createNodeField({
             node,
             name: 'langKey',
             value: slugAndLang.langKey,
+          });
+          createNodeField({
+            node,
+            name: 'langKeyDefault',
+            value: options.langKeyDefault,
+          });
+          createNodeField({
+            node: node,
+            name: 'filePath',
+            value: filePath_,
           });
           node.slug = slugAndLang.slug;
         }

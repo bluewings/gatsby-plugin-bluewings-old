@@ -12,7 +12,6 @@ export const query = graphql`
           name
           url
         }
-        langKeyDefault
       }
     }
     blogPost: mdxBlogPost(id: { eq: $id }) {
@@ -26,6 +25,14 @@ export const query = graphql`
       date(formatString: "MMMM DD, YYYY")
       fields {
         langKey
+        filePath
+      }
+      parent {
+        ... on Mdx {
+          frontmatter {
+            max_width
+          }
+        }
       }
     }
     previous: mdxBlogPost(id: { eq: $previousId }) {
