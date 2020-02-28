@@ -1,9 +1,5 @@
 module.exports = {
   plugins: [{
-      resolve: `gatsby-theme-blog`,
-      options: {},
-    },
-    {
       resolve: 'gatsby-plugin-bluewings',
       options: {
         wow: 'test',
