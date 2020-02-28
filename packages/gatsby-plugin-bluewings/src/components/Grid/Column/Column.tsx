@@ -8,10 +8,7 @@ function Column(props: any) {
   const { args, layoutFixed } = props;
 
   const className = useMemo(
-    () =>
-      [styles.grid, ...args.map((e: string) => styles[`grid_${e}`])]
-        .filter(identity)
-        .join(' '),
+    () => [styles.grid, ...args.map((e: string) => styles[`grid_${e}`])].filter(identity).join(' '),
     [args],
   );
 

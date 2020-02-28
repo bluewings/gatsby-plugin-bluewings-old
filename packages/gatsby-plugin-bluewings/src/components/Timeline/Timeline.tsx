@@ -142,7 +142,7 @@ function Timeline({ range, offset = 200 }: any) {
 function useWindowWidth() {
   const [width, setWidth] = useState(() => {
     try {
-      return window.innerWidth
+      return window.innerWidth;
     } catch (err) {
       /* ignore */
     }

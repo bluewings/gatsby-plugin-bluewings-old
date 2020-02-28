@@ -1,14 +1,15 @@
 const tailwindcss = require('tailwindcss');
 
-module.exports = options => {
-
+module.exports = (options) => {
   // console.log(options)
   return {
-    plugins: [{
+    plugins: [
+      {
         resolve: `gatsby-plugin-mdx`,
         options: {
           extensions: [`.mdx`, `.md`],
-          gatsbyRemarkPlugins: [{
+          gatsbyRemarkPlugins: [
+            {
               resolve: `${__dirname}/plugins/remark-snippet.js`,
               options,
             },
@@ -21,10 +22,10 @@ module.exports = options => {
               },
             },
             {
-              resolve: `gatsby-remark-copy-linked-files`
+              resolve: `gatsby-remark-copy-linked-files`,
             },
             {
-              resolve: `gatsby-remark-smartypants`
+              resolve: `gatsby-remark-smartypants`,
             },
           ],
           remarkPlugins: [require(`remark-slug`)],
@@ -64,7 +65,6 @@ module.exports = options => {
       //     ],
       //   },
       // },
-
     ],
-  }
-}
+  };
+};

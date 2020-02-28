@@ -1,14 +1,8 @@
 // https://github.com/angeloocana/gatsby-plugin-i18n/blob/master/packages/gatsby-plugin-i18n/src/onCreateNode.js
 // import defaultOptions from './defaultOptions';
-import {
-  isInPagesPaths,
-  getSlugAndLang
-} from 'ptz-i18n';
+import { isInPagesPaths, getSlugAndLang } from 'ptz-i18n';
 import Result from 'folktale/result';
-import {
-  isNil,
-  chain
-} from 'ramda';
+import { isNil, chain } from 'ramda';
 
 const defaultOptions = {
   langKeyForNull: 'any',
@@ -18,8 +12,7 @@ const defaultOptions = {
   prefixDefault: true,
 };
 
-const getValidFile = (filePath) =>
-  isNil(filePath) ? Result.Error('No file name') : Result.Ok(filePath);
+const getValidFile = (filePath) => (isNil(filePath) ? Result.Error('No file name') : Result.Ok(filePath));
 
 /**
  * Add custom url pathname for blog posts.
@@ -27,11 +20,7 @@ const getValidFile = (filePath) =>
  * @param {*} pluginOptions plugin options from gatsby-config.js
  * @returns {void} void
  */
-const onCreateNode = ({
-  node,
-  actions,
-  getNode
-}, pluginOptions) => {
+const onCreateNode = ({ node, actions, getNode }, pluginOptions) => {
   const options = {
     ...defaultOptions,
     ...pluginOptions,
@@ -77,15 +66,9 @@ const onCreateNode = ({
 
         const slugAndLang = getSlugAndLang(options, filePath);
 
-        const {
-          createNodeField
-        } = actions;
+        const { createNodeField } = actions;
 
-        if (
-          node.internal.type === 'MarkdownRemark' ||
-          node.internal.type === 'Mdx' ||
-          getParentType(node) === 'Mdx'
-        ) {
+        if (node.internal.type === 'MarkdownRemark' || node.internal.type === 'Mdx' || getParentType(node) === 'Mdx') {
           createNodeField({
             node,
             name: 'langKey',
@@ -106,6 +89,4 @@ const onCreateNode = ({
     .merge();
 };
 
-export {
-  onCreateNode
-};
+export { onCreateNode };

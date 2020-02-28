@@ -25,12 +25,8 @@ function reducer(state: any, action: any) {
       const { element, index, direction } = payload;
       const progress = direction === 'down' ? 0 : 1;
       const elRect = element.getBoundingClientRect();
-      const top =
-        elRect.top + document.documentElement.scrollTop ||
-        document.body.scrollTop;
-      const left =
-        elRect.left + document.documentElement.scrollLeft ||
-        document.body.scrollLeft;
+      const top = elRect.top + document.documentElement.scrollTop || document.body.scrollTop;
+      const left = elRect.left + document.documentElement.scrollLeft || document.body.scrollLeft;
       const rect = {
         width: elRect.width,
         height: elRect.height,
@@ -109,16 +105,12 @@ function useScrollama(props: any) {
 
   useEffect(() => {
     if (step && document.body.querySelectorAll(step).length > 0) {
-      stages.current = Array.from(document.body.querySelectorAll(step)).map(
-        (e) => {
-          return e.getAttribute('data-stage');
-        },
-      );
+      stages.current = Array.from(document.body.querySelectorAll(step)).map((e) => {
+        return e.getAttribute('data-stage');
+      });
       stageMap.current = {};
 
-      const stages2 = Array.from(
-        document.body.querySelectorAll(step),
-      ).map((e) => e.getAttribute('data-stage'));
+      const stages2 = Array.from(document.body.querySelectorAll(step)).map((e) => e.getAttribute('data-stage'));
 
       const indexToStage = (() => {
         const cache: any = {};
@@ -135,11 +127,7 @@ function useScrollama(props: any) {
         };
       })();
 
-      const stageProgress = (
-        index: number,
-        stageIndex: number,
-        progress: number,
-      ) => {
+      const stageProgress = (index: number, stageIndex: number, progress: number) => {
         if (index === stageIndex) {
           return progress;
         }
@@ -149,9 +137,7 @@ function useScrollama(props: any) {
       const scroller = scrollama();
       scroller
         .setup({ step, offset, progress })
-        .onStepEnter((payload: any) =>
-          dispatch({ type: STEP_ENTER, payload, indexToStage, stageProgress }),
-        )
+        .onStepEnter((payload: any) => dispatch({ type: STEP_ENTER, payload, indexToStage, stageProgress }))
         .onStepProgress((payload: any) =>
           dispatch({
             type: STEP_PROGRESS,
@@ -160,9 +146,7 @@ function useScrollama(props: any) {
             stageProgress,
           }),
         )
-        .onStepExit((payload: any) =>
-          dispatch({ type: STEP_EXIT, payload, indexToStage, stageProgress }),
-        );
+        .onStepExit((payload: any) => dispatch({ type: STEP_EXIT, payload, indexToStage, stageProgress }));
       window.addEventListener('resize', scroller.resize);
       return () => {
         window.removeEventListener('resize', scroller.resize);

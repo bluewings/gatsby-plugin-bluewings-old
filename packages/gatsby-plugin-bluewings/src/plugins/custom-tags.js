@@ -5,9 +5,7 @@ const grid = {
       // props: {},
       isFirst,
       args,
-      params: {
-        layoutFixed
-      },
+      params: { layoutFixed },
     } = all;
     return {
       type: 'jsx',
@@ -24,9 +22,7 @@ const grid = {
     };
   },
   close: (props) => {
-    const {
-      finale
-    } = props;
+    const { finale } = props;
     return {
       type: 'jsx',
       value: `
@@ -40,9 +36,7 @@ const grid = {
 
 const section = {
   import: null,
-  open: ({
-    className
-  }) => {
+  open: ({ className }) => {
     return {
       type: 'jsx',
       value: `<section className="${className}">`,
@@ -72,12 +66,9 @@ const customTags = {
   grid,
   section,
   context,
-
-
 };
 
-
-export default customTags
+export default customTags;
 // export {
 //   customTags
 // }

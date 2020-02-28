@@ -17,25 +17,13 @@ const withDefaults = (themeOptions) => {
 const PostTemplate = require.resolve(`./src/templates/post-query`);
 const PostsTemplate = require.resolve(`./src/templates/posts-query`);
 
-const createPages = async ({
-  graphql,
-  actions,
-  reporter
-}, themeOptions) => {
-  const {
-    createPage
-  } = actions;
-  const {
-    basePath,
-    langKeyDefault
-  } = withDefaults(themeOptions);
+const createPages = async ({ graphql, actions, reporter }, themeOptions) => {
+  const { createPage } = actions;
+  const { basePath, langKeyDefault } = withDefaults(themeOptions);
 
   const result = await graphql(`
     {
-      allBlogPost: allMdxBlogPost(
-        sort: { fields: [date, title], order: DESC }
-        limit: 1000
-      ) {
+      allBlogPost: allMdxBlogPost(sort: { fields: [date, title], order: DESC }, limit: 1000) {
         edges {
           node {
             id
@@ -54,9 +42,7 @@ const createPages = async ({
   }
 
   // // Create Posts and Post pages.
-  const {
-    allBlogPost
-  } = result.data;
+  const { allBlogPost } = result.data;
   const posts = allBlogPost.edges;
 
   // const translationsByDirectory = posts.reduce((accum, post) => {
@@ -70,9 +56,7 @@ const createPages = async ({
   //   return accum;
   // }, {});
 
-  const langKeys = posts
-    .map((post) => post.node.fields.langKey)
-    .filter((e, i, arr) => arr.indexOf(e) === i);
+  const langKeys = posts.map((post) => post.node.fields.langKey).filter((e, i, arr) => arr.indexOf(e) === i);
 
   console.log(posts);
   console.log(langKeys);
@@ -88,14 +72,10 @@ const createPages = async ({
     }, {}),
   ).forEach(([langKey, posts]) => {
     // Create a page for each Post
-    posts.forEach(({
-      node: post
-    }, index) => {
+    posts.forEach(({ node: post }, index) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1];
       const next = index === 0 ? null : posts[index - 1];
-      const {
-        slug
-      } = post;
+      const { slug } = post;
       createPage({
         path: slug,
         component: PostTemplate,
@@ -108,10 +88,7 @@ const createPages = async ({
     });
 
     // // Create the Posts page
-    const path =
-      langKey === langKeyDefault ?
-      basePath :
-      `${basePath.replace(/\/$/, '')}/${langKey}`;
+    const path = langKey === langKeyDefault ? basePath : `${basePath.replace(/\/$/, '')}/${langKey}`;
 
     console.log('>> createPage', path);
     createPage({
@@ -135,6 +112,4 @@ const createPages = async ({
   // })
 };
 
-export {
-  createPages
-};
+export { createPages };

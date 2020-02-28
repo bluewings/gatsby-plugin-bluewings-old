@@ -1,11 +1,9 @@
-import {
-  graphql
-} from "gatsby"
+import { graphql } from 'gatsby';
 import PostPage from 'gatsby-theme-blog-core/src/components/post';
 
-export default PostPage
+export default PostPage;
 
-export const query = graphql `
+export const query = graphql`
   query Bluewings_PostPageQuery($id: String!, $previousId: String, $nextId: String) {
     site {
       siteMetadata {
@@ -45,4 +43,4 @@ export const query = graphql `
       date(formatString: "MMMM DD, YYYY")
     }
   }
-`
+`;

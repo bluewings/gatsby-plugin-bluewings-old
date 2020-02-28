@@ -15,7 +15,6 @@ const rollupConfig = {
       rootDir: path.join(__dirname, 'src'),
       autoUpdateJsFile: true,
       resolve: {
-
         classnames: 'cx',
         '@/helpers/util.ts': {
           member: {
@@ -101,6 +100,5 @@ const remarkSnippetPlugin = {
     sourcemap: false,
   },
 };
-
 
 export default [cjs, esm, gatsbyConfig, gatsbyNode, remarkSnippetPlugin];

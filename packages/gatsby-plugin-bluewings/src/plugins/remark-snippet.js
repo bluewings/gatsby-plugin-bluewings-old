@@ -4,13 +4,10 @@ const evaluate = (mayBefunc) => {
   // return typeof mayBefunc === 'function' ? mayBefunc : (props) => {
   //   return mayBefunc;
   // }
-  return (props) =>
-    typeof mayBefunc === 'function' ? mayBefunc(props) : mayBefunc;
+  return (props) => (typeof mayBefunc === 'function' ? mayBefunc(props) : mayBefunc);
 };
 
-module.exports = ({
-  markdownAST
-}) => {
+module.exports = ({ markdownAST }) => {
   const customTags = Object.entries(_customTags).reduce((accum, [k, v]) => {
     return {
       ...accum,
@@ -95,8 +92,9 @@ module.exports = ({
 
           imports = [
             ...imports,
-            ...(Array.isArray(customTags[annot.tag].import) ?
-              customTags[annot.tag].import : [customTags[annot.tag].import]),
+            ...(Array.isArray(customTags[annot.tag].import)
+              ? customTags[annot.tag].import
+              : [customTags[annot.tag].import]),
           ].filter((e, i, arr) => {
             return e && arr.indexOf(e) === i;
           });
@@ -120,7 +118,8 @@ module.exports = ({
           // const close = customTags[annot.tag].close(annot);
           // console.log('>> annot.tag:', annot.tag)
           // console.log('case 1')
-          context.stack = [{
+          context.stack = [
+            {
               // ...close,
               closeFn: customTags[annot.tag].close,
               tag: annot.tag,
@@ -185,10 +184,7 @@ const identity = (e) => e;
 
 const parseAnnot = (node, context) => {
   const pattern = /^@([^\s#.,]+)(#([^\s.,]+))?(\.[^\s,]+)?(,(.*))?$/;
-  const {
-    type,
-    children
-  } = node;
+  const { type, children } = node;
 
   if (type === 'paragraph' && children && children.length === 1) {
     const child = children[0];
@@ -201,11 +197,12 @@ const parseAnnot = (node, context) => {
         .filter(identity)
         .reduce((accum, e) => {
           const [, key, , value] = e.match(/^([^\s]+?)(=([^\s]+)){0,1}$/) || [];
-          return key ? {
-              ...accum,
-              [key]: typeof value === 'undefined' ? true : value,
-            } :
-            accum;
+          return key
+            ? {
+                ...accum,
+                [key]: typeof value === 'undefined' ? true : value,
+              }
+            : accum;
         }, {});
 
       const className = (_classNames || '')
