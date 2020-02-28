@@ -83,7 +83,7 @@ const gatsbyConfig = {
 
 const gatsbyNode = {
   ...rollupConfig,
-  input: 'src/gatsby-node/index.js',
+  input: 'src/gatsby-node/index.ts',
   output: {
     file: 'gatsby-node.js',
     format: 'cjs',
@@ -93,7 +93,7 @@ const gatsbyNode = {
 
 const remarkSnippetPlugin = {
   ...rollupConfig,
-  input: 'src/plugins/remark-snippet.js',
+  input: 'src/plugins/remark-snippet.ts',
   output: {
     file: 'dist/plugins/remark-snippet.js',
     format: 'cjs',

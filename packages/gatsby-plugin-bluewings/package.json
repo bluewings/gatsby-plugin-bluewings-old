@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-bluewings",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "author": {
     "name": "Sung Won Cha",
     "email": "mygenie3@naver.com"
@@ -24,8 +24,10 @@
     "@types/react-json-tree": "^0.6.11",
     "classnames": "^2.2.6",
     "folktale": "^2.3.2",
+    "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-mdx": "^1.0.73",
     "gatsby-plugin-sass": "^2.1.29",
+    "gatsby-plugin-typescript": "^2.1.27",
     "gatsby-remark-copy-linked-files": "^2.1.37",
     "gatsby-remark-images": "^3.1.44",
     "gatsby-remark-smartypants": "^2.1.21",
@@ -50,6 +52,7 @@
     "@types/react-dom": "^16.9.5",
     "copy": "^0.3.2",
     "node-sass": "^4.13.1",
+    "prettier": "^1.19.1",
     "rollup": "^1.31.1",
     "rollup-plugin-postcss": "^2.1.1",
     "rollup-plugin-pug-as-jsx": "^1.0.9",

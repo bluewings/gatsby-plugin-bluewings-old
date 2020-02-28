@@ -1,7 +1,10 @@
 // https://github.com/angeloocana/gatsby-plugin-i18n/blob/master/packages/gatsby-plugin-i18n/src/onCreateNode.js
 // import defaultOptions from './defaultOptions';
+// @ts-ignore
 import { isInPagesPaths, getSlugAndLang } from 'ptz-i18n';
+// @ts-ignore
 import Result from 'folktale/result';
+// @ts-ignore
 import { isNil, chain } from 'ramda';
 
 const defaultOptions = {
@@ -12,7 +15,7 @@ const defaultOptions = {
   prefixDefault: true,
 };
 
-const getValidFile = (filePath) => (isNil(filePath) ? Result.Error('No file name') : Result.Ok(filePath));
+const getValidFile = (filePath: string) => (isNil(filePath) ? Result.Error('No file name') : Result.Ok(filePath));
 
 /**
  * Add custom url pathname for blog posts.
@@ -20,28 +23,24 @@ const getValidFile = (filePath) => (isNil(filePath) ? Result.Error('No file name
  * @param {*} pluginOptions plugin options from gatsby-config.js
  * @returns {void} void
  */
-const onCreateNode = ({ node, actions, getNode }, pluginOptions) => {
+const onCreateNode = ({ node, actions, getNode }: any, pluginOptions: any) => {
   const options = {
     ...defaultOptions,
     ...pluginOptions,
   };
 
-  const getParentType = (node) => {
+  const getParentType = (node: any) => {
     const parent = node && node.parent && getNode(node.parent);
     return parent && parent.internal && parent.internal.type;
   };
 
-  console.log(node.internal.type);
-
   if (node.internal.type === 'Site') {
-    console.log(node);
-
     if (node.siteMetadata && !node.siteMetadata.langKeyDefault) {
       node.siteMetadata.langKeyDefault = options.langKeyDefault;
     }
   }
 
-  const getFilePath = (node) => {
+  const getFilePath = (node: any) => {
     switch (node.internal.type) {
       case 'File':
         return getValidFile(node.absolutePath);
@@ -58,8 +57,8 @@ const onCreateNode = ({ node, actions, getNode }, pluginOptions) => {
   };
 
   return getFilePath(node)
-    .map((filePath) =>
-      chain((isInPaths) => {
+    .map((filePath: string) =>
+      chain((isInPaths: boolean) => {
         if (isInPaths === false) {
           return 'Skipping page, not in pagesPaths';
         }

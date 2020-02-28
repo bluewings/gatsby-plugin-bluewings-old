@@ -1,6 +1,6 @@
 // https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-theme-blog-core/gatsby-node.js
 
-const withDefaults = (themeOptions) => {
+const withDefaults = (themeOptions: any) => {
   const basePath = themeOptions.basePath || `/`;
   const contentPath = themeOptions.contentPath || `content/posts`;
   const assetPath = themeOptions.assetPath || `content/assets`;
@@ -17,7 +17,7 @@ const withDefaults = (themeOptions) => {
 const PostTemplate = require.resolve(`./src/templates/post-query`);
 const PostsTemplate = require.resolve(`./src/templates/posts-query`);
 
-const createPages = async ({ graphql, actions, reporter }, themeOptions) => {
+const createPages = async ({ graphql, actions, reporter }: any, themeOptions: any) => {
   const { createPage } = actions;
   const { basePath, langKeyDefault } = withDefaults(themeOptions);
 
@@ -41,38 +41,21 @@ const createPages = async ({ graphql, actions, reporter }, themeOptions) => {
     reporter.panic(result.errors);
   }
 
-  // // Create Posts and Post pages.
+  // Create Posts and Post pages.
   const { allBlogPost } = result.data;
-  const posts = allBlogPost.edges;
 
-  // const translationsByDirectory = posts.reduce((accum, post) => {
-  //   const {
-  //     directoryName,
-  //     langKey
-  //   } = post.node.fields;
-  //   if (directoryName && langKey && langKey !== langKeyDefault) {
-  //     (accum[directoryName] || (accum[directoryName] = [])).push(langKey);
-  //   }
-  //   return accum;
-  // }, {});
-
-  const langKeys = posts.map((post) => post.node.fields.langKey).filter((e, i, arr) => arr.indexOf(e) === i);
-
-  console.log(posts);
-  console.log(langKeys);
-
-  // 언어별로 포스트를 모음
+  // group posts by langKey
   Object.entries(
-    posts.reduce((accum, post) => {
-      const langKey = post.node.fields.langKey;
-      return {
+    allBlogPost.edges.reduce(
+      (accum: any, post: any) => ({
         ...accum,
-        [langKey]: [...(accum[langKey] || []), post],
-      };
-    }, {}),
-  ).forEach(([langKey, posts]) => {
+        [post.node.fields.langKey]: [...(accum[post.node.fields.langKey] || []), post],
+      }),
+      {},
+    ),
+  ).forEach(([langKey, posts]: [string, any]) => {
     // Create a page for each Post
-    posts.forEach(({ node: post }, index) => {
+    posts.forEach(({ node: post }: any, index: number) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1];
       const next = index === 0 ? null : posts[index - 1];
       const { slug } = post;
@@ -87,10 +70,8 @@ const createPages = async ({ graphql, actions, reporter }, themeOptions) => {
       });
     });
 
-    // // Create the Posts page
+    // Create the Posts page
     const path = langKey === langKeyDefault ? basePath : `${basePath.replace(/\/$/, '')}/${langKey}`;
-
-    console.log('>> createPage', path);
     createPage({
       path,
       component: PostsTemplate,
@@ -99,17 +80,6 @@ const createPages = async ({ graphql, actions, reporter }, themeOptions) => {
       },
     });
   });
-
-  // posts.map((post) => post.node.fields.langKey).filter((e, i, arr) => arr.indexOf(e) === i)
-
-  // langKeyDefault
-
-  // // // Create the Posts page
-  // createPage({
-  //   path: basePath,
-  //   component: PostsTemplate,
-  //   context: {},
-  // })
 };
 
 export { createPages };

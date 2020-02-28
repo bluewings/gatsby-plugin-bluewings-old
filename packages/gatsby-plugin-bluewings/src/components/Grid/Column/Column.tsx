@@ -14,10 +14,7 @@ function Column(props: any) {
 
   if (layoutFixed) {
     return (
-      <div
-        className={className}
-        // style={{ border: '5px dashed green', padding: 10, margin: 10 }}
-      >
+      <div className={className}>
         <LayoutFixed>{props.children}</LayoutFixed>
       </div>
     );
