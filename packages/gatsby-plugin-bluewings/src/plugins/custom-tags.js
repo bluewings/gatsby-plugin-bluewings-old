@@ -1,17 +1,14 @@
 const grid = {
-  import: [
-    `import { Bluewings } from 'gatsby-plugin-bluewings'`,
-  ],
+  import: [`import { Bluewings } from 'gatsby-plugin-bluewings'`],
   open: (all) => {
-
     const {
       // props: {},
       isFirst,
       args,
       params: {
-        layoutFixed,
+        layoutFixed
       },
-    } = all
+    } = all;
     return {
       type: 'jsx',
       value: `
@@ -23,13 +20,13 @@ const grid = {
 
 
 
-      `
-    }
+      `,
+    };
   },
   close: (props) => {
     const {
       finale
-    } = props
+    } = props;
     return {
       type: 'jsx',
       value: `
@@ -37,10 +34,9 @@ const grid = {
       </Bluewings.Column>
       ${finale ? '</Bluewings.Row>' : ''}
       `,
-    }
-  }
-}
-
+    };
+  },
+};
 
 const section = {
   import: null,
@@ -49,26 +45,26 @@ const section = {
   }) => {
     return {
       type: 'jsx',
-      value: `<section className="${className}">`
-    }
+      value: `<section className="${className}">`,
+    };
   },
   close: {
     type: 'jsx',
     value: '</section>',
-  }
-}
+  },
+};
 
 const context = {
   import: `import { Bluewings } from 'gatsby-plugin-bluewings'`,
   open: {
     type: 'jsx',
-    value: '<Bluewings.DataProvider>'
+    value: '<Bluewings.DataProvider>',
   },
   close: {
     type: 'jsx',
     value: '</Bluewings.DataProvider>',
-  }
-}
+  },
+};
 
 // next = <DataProvider>{next}</DataProvider>;
 
@@ -76,6 +72,14 @@ const customTags = {
   grid,
   section,
   context,
-}
 
-module.exports = customTags;
+
+};
+
+
+export default customTags
+// export {
+//   customTags
+// }
+
+// module.exports = customTags;

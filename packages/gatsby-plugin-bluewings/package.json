@@ -57,11 +57,13 @@
     "typescript": "^3.8.2"
   },
   "scripts": {
-    "prestart": "rm -rf ./dist && rm -rf tsconfig.tsbuildinfo && cd ./src && copy ./gatsby-* ../dist && copy ./tailwind.* ../dist && copy ./plugins/* ../dist",
+    "prestart_old": "rm -rf ./dist && rm -rf tsconfig.tsbuildinfo && cd ./src && copy ./gatsby-* ../dist && copy ./tailwind.* ../dist && copy ./plugins/* ../dist",
+    "prestart": "rm -rf ./dist && rm -rf tsconfig.tsbuildinfo && cd ./src && copy ./tailwind.* ../dist ",
     "start": "rollup -c --watch"
   },
   "files": [
     "dist",
+    "gatsby-*",
     "README.md"
   ],
   "license": "MIT"

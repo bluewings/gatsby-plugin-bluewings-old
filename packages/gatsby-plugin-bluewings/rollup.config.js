@@ -72,4 +72,35 @@ const esm = {
   },
 };
 
-export default [cjs, esm];
+const gatsbyConfig = {
+  ...rollupConfig,
+  input: 'src/gatsby-config.js',
+  output: {
+    file: 'dist/gatsby-config.js',
+    format: 'cjs',
+    sourcemap: false,
+  },
+};
+
+const gatsbyNode = {
+  ...rollupConfig,
+  input: 'src/gatsby-node/index.js',
+  output: {
+    file: 'gatsby-node.js',
+    format: 'cjs',
+    sourcemap: false,
+  },
+};
+
+const remarkSnippetPlugin = {
+  ...rollupConfig,
+  input: 'src/plugins/remark-snippet.js',
+  output: {
+    file: 'dist/plugins/remark-snippet.js',
+    format: 'cjs',
+    sourcemap: false,
+  },
+};
+
+
+export default [cjs, esm, gatsbyConfig, gatsbyNode, remarkSnippetPlugin];

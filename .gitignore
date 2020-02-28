@@ -24,3 +24,5 @@ yarn-error.log*
 
 tsconfig.tsbuildinfo
 yarn.lock
+
+packages/gatsby-plugin-bluewings/gatsby-*.js

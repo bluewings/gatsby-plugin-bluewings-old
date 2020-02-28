@@ -1,7 +1,6 @@
-const _customTags = require('./custom-tags');
+import _customTags from './custom-tags';
 
 const evaluate = (mayBefunc) => {
-
   // return typeof mayBefunc === 'function' ? mayBefunc : (props) => {
   //   return mayBefunc;
   // }
@@ -40,7 +39,6 @@ module.exports = ({
       }
 
       if (node.type === 'export') {
-
         // console.log('annot');
         const closeAll = [...context.stack].map((e) => {
           return e.closeFn({
@@ -105,7 +103,6 @@ module.exports = ({
 
           const openFn = customTags[annot.tag].open;
 
-
           // console.log({
           //   isFirst,
           //   tag: annot.tag,
@@ -142,26 +139,30 @@ module.exports = ({
     }, []);
 
     _imports = _imports.map((e) => {
-      return e.replace(/['`]/g, '"')
+      return e
+        .replace(/['`]/g, '"')
         .replace(/\s+/g, ' ')
         .replace(/"\s*;\s*/g, '"');
     });
 
-    imports = imports.map((e) => {
-      return e.replace(/['`]/g, '"')
-        .replace(/\s+/g, ' ')
-        .replace(/"\s*;\s*/g, '"');
-    }).filter(e => _imports.indexOf(e) === -1)
+    imports = imports
+      .map((e) => {
+        return e
+          .replace(/['`]/g, '"')
+          .replace(/\s+/g, ' ')
+          .replace(/"\s*;\s*/g, '"');
+      })
+      .filter((e) => _imports.indexOf(e) === -1);
 
     markdownAST.children = [
-      ...imports.map(value => {
+      ...imports.map((value) => {
         return {
           type: 'import',
           value,
-        }
+        };
       }),
-      ...markdownAST.children
-    ]
+      ...markdownAST.children,
+    ];
 
     // console.log(JSON.stringify(markdownAST.children, null, 2));
     // console.log('>>> I M P O R T S');

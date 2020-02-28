@@ -1,24 +1,24 @@
 // https://github.com/angeloocana/gatsby-plugin-i18n/blob/master/packages/gatsby-plugin-i18n/src/onCreateNode.js
 // import defaultOptions from './defaultOptions';
-const {
+import {
   isInPagesPaths,
   getSlugAndLang
-} = require('ptz-i18n');
-const Result = require('folktale/result');
-const {
+} from 'ptz-i18n';
+import Result from 'folktale/result';
+import {
   isNil,
   chain
-} = require('ramda');
+} from 'ramda';
 
 const defaultOptions = {
   langKeyForNull: 'any',
   langKeyDefault: 'en',
   useLangKeyLayout: false,
   pagesPaths: ['/content/posts'],
-  prefixDefault: true
+  prefixDefault: true,
 };
 
-const getValidFile = filePath =>
+const getValidFile = (filePath) =>
   isNil(filePath) ? Result.Error('No file name') : Result.Ok(filePath);
 
 /**
@@ -30,11 +30,11 @@ const getValidFile = filePath =>
 const onCreateNode = ({
   node,
   actions,
-  getNode,
+  getNode
 }, pluginOptions) => {
   const options = {
     ...defaultOptions,
-    ...pluginOptions
+    ...pluginOptions,
   };
 
   const getParentType = (node) => {
@@ -42,7 +42,7 @@ const onCreateNode = ({
     return parent && parent.internal && parent.internal.type;
   };
 
-  const getFilePath = node => {
+  const getFilePath = (node) => {
     switch (node.internal.type) {
       case 'File':
         return getValidFile(node.absolutePath);
@@ -59,8 +59,8 @@ const onCreateNode = ({
   };
 
   return getFilePath(node)
-    .map(filePath =>
-      chain(isInPaths => {
+    .map((filePath) =>
+      chain((isInPaths) => {
         if (isInPaths === false) {
           return 'Skipping page, not in pagesPaths';
         }
@@ -76,11 +76,10 @@ const onCreateNode = ({
           node.internal.type === 'Mdx' ||
           getParentType(node) === 'Mdx'
         ) {
-
           createNodeField({
             node,
             name: 'langKey',
-            value: slugAndLang.langKey
+            value: slugAndLang.langKey,
           });
           node.slug = slugAndLang.slug;
         }
@@ -88,13 +87,15 @@ const onCreateNode = ({
         createNodeField({
           node,
           name: 'slug',
-          value: slugAndLang.slug
+          value: slugAndLang.slug,
         });
 
         return 'langKey and slug added';
-      }, isInPagesPaths(options, filePath))
+      }, isInPagesPaths(options, filePath)),
     )
     .merge();
 };
 
-exports.onCreateNode = onCreateNode;
+export {
+  onCreateNode
+};
