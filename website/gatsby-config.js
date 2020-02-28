@@ -12,7 +12,7 @@ module.exports = {
       {
         name: "github",
         url: "https://github.com/gatsbyjs",
-      },
+      }
     ],
   },
   plugins: [
@@ -26,6 +26,7 @@ module.exports = {
         //   directory: "website",
         //   branch: "master",
         // },
+        disqusShortname: "gatsby-starter-mdx-blog",
       },
     },
   ],

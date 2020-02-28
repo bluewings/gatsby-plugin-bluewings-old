@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-bluewings",
-  "version": "0.3.15",
+  "version": "0.3.16",
   "author": {
     "name": "Sung Won Cha",
     "email": "mygenie3@naver.com"
@@ -24,6 +24,7 @@
     "@types/react-json-tree": "^0.6.11",
     "classnames": "^2.2.6",
     "deepmerge": "^4.2.2",
+    "disqus-react": "^1.0.7",
     "folktale": "^2.3.2",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-mdx": "^1.0.73",

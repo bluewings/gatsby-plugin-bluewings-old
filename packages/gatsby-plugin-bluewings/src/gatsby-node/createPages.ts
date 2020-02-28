@@ -29,7 +29,7 @@ const PostsTemplate = require.resolve(`./src/templates/posts-query`);
 
 const createPages = async ({ graphql, actions, reporter }: any, themeOptions: any) => {
   const { createPage } = actions;
-  const { basePath, langKeyDefault, editOnGithub } = withDefaults(themeOptions);
+  const { basePath, langKeyDefault, editOnGithub, disqusShortname } = withDefaults(themeOptions);
 
   const result = await graphql(`
     {
@@ -84,6 +84,7 @@ const createPages = async ({ graphql, actions, reporter }: any, themeOptions: an
           nextId: next ? next.node.id : undefined,
           translations: translationsDict[getOrigin(slug, langKey)] || [],
           editOnGithub,
+          disqusShortname,
           langKeyDefault,
         },
       });

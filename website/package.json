@@ -9,8 +9,9 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "disqus-react": "^1.0.7",
     "gatsby": "^2.19.21",
-    "gatsby-plugin-bluewings": "^0.3.14",
+    "gatsby-plugin-bluewings": "^0.3.16",
     "gatsby-theme-blog": "^1.2.35",
     "gatsby-theme-waves": "^0.1.5",
     "node-sass": "^4.13.1",

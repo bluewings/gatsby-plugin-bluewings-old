@@ -79,7 +79,7 @@ const iconCss = [{ pointerEvents: `none`, margin: 4 }]
 //   />
 // )
 
-export default ({ children, title, ...props }) => {
+export default ({ children, title, maxWidth, ...props }) => {
   const [colorMode, setColorMode] = useColorMode()
   const isDark = colorMode === `dark`
   const toggleColorMode = e => {
@@ -91,7 +91,7 @@ export default ({ children, title, ...props }) => {
     <header>
       <div
         css={css({
-          maxWidth: `container`,
+          maxWidth: maxWidth || `container`,
           mx: `auto`,
           px: 3,
           pt: 4,

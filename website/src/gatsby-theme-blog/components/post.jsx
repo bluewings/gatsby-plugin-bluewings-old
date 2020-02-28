@@ -1,7 +1,7 @@
 // https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-theme-blog/src/components/post.js
 import React from "react"
 import { Styled, css } from "theme-ui"
-
+import { DiscussionEmbed } from "disqus-react"
 import PostFooter from "gatsby-theme-blog/src/components/post-footer"
 import Layout from "gatsby-theme-blog/src/components/layout"
 import SEO from "gatsby-theme-blog/src/components/seo"
@@ -30,17 +30,23 @@ const Post = all => {
     },
   } = data
   console.log("%c-=-=-=-=-=-=-=-=-", "background:yellow")
-  console.log({ data, post, pageContext })
+  // console.log({ data, post, pageContext })
+  // console.log(post.parent && post.parent.frontmatter)
   const { langKey, filePath } = post.fields || {}
-  const { translations, editOnGithub } = pageContext || {}
-
+  const { translations, editOnGithub, disqusShortname } = pageContext || {}
+  const { max_width } = (post.parent && post.parent.frontmatter) || {}
+  console.log({ max_width })
   //   editOnGithub: "https://github.com/bluewings/dev-dad/edit/master"
   // langKeyDefault: "en"
   return (
-    <Layout location={location} title={title} langKey={langKey}>
+    <Layout
+      location={location}
+      title={title}
+      langKey={langKey}
+      maxWidth={max_width}
+    >
       <SEO title={post.title} description={post.excerpt} />
       <main>
-        <h1>---- cut here 1 -----</h1>
         <Styled.h1>{post.title}</Styled.h1>
         <Styled.p
           css={css({
@@ -51,7 +57,6 @@ const Post = all => {
         >
           {post.date}
         </Styled.p>
-        <h1>---- cut here 2 -----</h1>
         <Translations
           langKey={langKey}
           translations={translations}
@@ -63,6 +68,15 @@ const Post = all => {
         <MDXRenderer>{post.body}</MDXRenderer>
       </main>
       <PostFooter {...{ previous, next }} />
+      {disqusShortname && (
+        <DiscussionEmbed
+          shortname={disqusShortname}
+          config={{
+            identifier: post.id,
+            title: title,
+          }}
+        />
+      )}
     </Layout>
   )
 }
