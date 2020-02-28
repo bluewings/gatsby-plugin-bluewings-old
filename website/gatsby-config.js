@@ -9,6 +9,7 @@ module.exports = {
         wow: 'test',
       },
     },
+    "gatsby-theme-waves",
   ],
   // Customize your site metadata:
   siteMetadata: {

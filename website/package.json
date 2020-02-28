@@ -13,6 +13,7 @@
     "gatsby-plugin-bluewings": "^0.2.2",
     "gatsby-plugin-i18n": "^1.0.1",
     "gatsby-theme-blog": "^1.2.35",
+    "gatsby-theme-waves": "^0.1.5",
     "intersection-observer": "^0.7.0",
     "node-sass": "^4.13.1",
     "react": "^16.12.0",
