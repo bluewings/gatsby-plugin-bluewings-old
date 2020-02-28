@@ -4,6 +4,12 @@ module.exports = (options) => {
   // console.log(options)
   return {
     plugins: [{
+        resolve: 'gatsby-theme-blog',
+        // options: {
+        //   mdxOtherwiseConfigured: true,
+        // },
+      },
+      {
         resolve: `gatsby-plugin-mdx`,
         options: {
           extensions: [`.mdx`, `.md`],
@@ -29,12 +35,7 @@ module.exports = (options) => {
           remarkPlugins: [require(`remark-slug`)],
         },
       },
-      {
-        resolve: 'gatsby-theme-blog',
-        options: {
-          mdxOtherwiseConfigured: true,
-        },
-      },
+
       {
         // resolve: `${__dirname}/node_modules/gatsby-plugin-sass`,
         // resolve: `${__dirname}/../node_modules/gatsby-plugin-sass`,
