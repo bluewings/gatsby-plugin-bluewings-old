@@ -62,6 +62,7 @@
     "start": "rollup -c --watch"
   },
   "files": [
+    "src",
     "dist",
     "gatsby-*",
     "README.md"
