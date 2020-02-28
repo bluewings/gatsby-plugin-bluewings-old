@@ -1,11 +1,12 @@
 module.exports = {
-  plugins: [{
-      resolve: 'gatsby-plugin-bluewings',
-      options: {
-        wow: 'test',
-        // langKeyDefault: '',
-      },
-    },
+  plugins: [
+    // {
+    //   resolve: 'gatsby-plugin-bluewings',
+    //   options: {
+    //     wow: 'test',
+    //     // langKeyDefault: '',
+    //   },
+    // },
     "gatsby-theme-waves",
   ],
   // Customize your site metadata:
