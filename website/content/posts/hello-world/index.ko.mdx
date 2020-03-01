@@ -15,14 +15,18 @@ import data from "./data"
 ```jsx{1,4-6}
 class HelloMessage extends React.Component {
   render() {
-    return <div>Hello {this.props.name}</div>
+    return (
+      <div>
+        Hello {this.props.name}
+      </div>
+    );
   }
 }
-
+ 
 ReactDOM.render(
   <HelloMessage name="Taylor" />,
-  document.getElementById("hello-example")
-)
+  document.getElementById('hello-example')
+);
 ```
 
 <JsonTree data={data} />

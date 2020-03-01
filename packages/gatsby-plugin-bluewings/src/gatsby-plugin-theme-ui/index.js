@@ -104,6 +104,21 @@ let merged = merge(blogTheme, {
 
   },
 
+  prism: {
+    background: 'yellow',
+    '.gatsby-highlight-code-line': {
+      // background: 'yellow',
+
+      display: 'block',
+      marginRight: '-1.3125rem',
+      marginLeft: '-1.3125rem',
+      paddingRight: '1em',
+      paddingLeft: '0.98437rem;',
+      backgroundColor: 'hsla(0,0%,100%,.125)',
+      borderLeft: '0.32813rem solid #f8c555',
+    }
+  }
+
 
 
 });
