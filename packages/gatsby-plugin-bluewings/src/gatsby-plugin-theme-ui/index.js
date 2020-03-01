@@ -32,8 +32,9 @@ let merged = merge(blogTheme, {
   // },
   styles: {
     root: {
-      margin: 0,
-      padding: 0
+      // margin: 0,
+      // padding: 0,
+      fontSize: 2
     },
     // a: {
     //   color: '#007acc'
@@ -66,13 +67,16 @@ let merged = merge(blogTheme, {
       fontStyle: 'italic',
       borderLeft: '0.32813rem solid',
       borderColor: 'text',
+
       // borderLeft: '0.32813rem solid hsla(0,0%,0%,0.9)',
 
       // border-left: 0.32813rem solid hsla(0,0%,0%,0.9);
 
       fontSize: '1.20112rem',
-      lineHeight: '1.75rem',
-      fontFamily: `'Merriweather','Georgia',serif`,
+      fontWeight: 600,
+      // lineHeight: '1.75rem',
+      lineHeight: '2rem',
+      fontFamily: `'Merriweather','Georgia', 'Noto Serif KR',serif`,
 
       // @media only screen and (max-width: 480px) {
       //   blockquote {
@@ -88,14 +92,32 @@ let merged = merge(blogTheme, {
       // font-style: italic;
       // border-left: 0.32813rem solid hsla(0,0%,0%,0.9);
     },
+    pre: {
+      p: '1.3125rem',
+      borderRadius: [0, '0.3em'],
+    }
 
   },
 
 
+  prism: {
+    CodeBlock: {
+      background: 'yellow',
+    },
+    // border: '5px solid red'
+    marginBottom: '1.75rem',
+    marginLeft: '-1.3125rem',
+    marginRight: '-1.3125rem',
+    // margin-left: -1.3125rem;
+    // margin-right: -1.3125rem;
 
+
+    borderRadius: 0,
+  }
 });
 
 merged = merge(merged, wavesTheme)
+
 
 merged.sizes = {
   "container": 630
