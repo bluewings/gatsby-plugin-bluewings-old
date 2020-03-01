@@ -1,11 +1,18 @@
 import './typography.css';
 import blogTheme from 'gatsby-theme-blog/src/gatsby-plugin-theme-ui/index';
+import wavesTheme from "gatsby-theme-waves/src/gatsby-plugin-theme-ui/index"
 import merge from 'deepmerge';
 import colors from './colors';
 
+// import wavesTheme from "gatsby-theme-waves/src/gatsby-plugin-theme-ui/index"
+// import blogTheme from "gatsby-plugin-bluewings/src/gatsby-plugin-theme-ui/index"
+// import merge from "deepmerge"
+
+
+
 console.log('>>> colors', colors)
 
-const merged = merge(blogTheme, {
+let merged = merge(blogTheme, {
   colors,
   fonts: {
     body: `'Open Sans', 'Gothic A1', 'Apple SD Gothic NEO', helvetica, sans-serif`,
@@ -87,6 +94,8 @@ const merged = merge(blogTheme, {
 
 
 });
+
+merged = merge(merged, wavesTheme)
 
 merged.sizes = {
   "container": 630

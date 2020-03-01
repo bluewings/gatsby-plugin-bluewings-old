@@ -8,11 +8,9 @@ module.exports = (options) => {
         resolve: 'gatsby-plugin-mdx',
         options: {
           extensions: ['.mdx', '.md'],
-          gatsbyRemarkPlugins: [{
-              resolve: `${__dirname}/plugins/remark-snippet.js`,
-            },
+          gatsbyRemarkPlugins: [
             {
-              resolve: 'gatsby-remark-vscode',
+              resolve: `${__dirname}/plugins/remark-snippet.js`,
             },
             {
               resolve: 'gatsby-remark-images',

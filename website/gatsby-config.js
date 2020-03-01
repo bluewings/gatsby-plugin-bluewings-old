@@ -5,8 +5,7 @@ module.exports = {
     title: "개츠비 스타터 MDX",
     author: "My Name",
     description: "My site description...",
-    social: [
-      {
+    social: [{
         name: "twitter",
         url: "https://twitter.com/gatsbyjs",
       },
@@ -17,7 +16,7 @@ module.exports = {
     ],
   },
   plugins: [
-    "gatsby-theme-blog",
+    // "gatsby-theme-blog",
     {
       resolve: "gatsby-plugin-bluewings",
       options: {
