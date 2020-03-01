@@ -12,7 +12,7 @@ import Image from "gatsby-image"
 import { Styled, css, Flex } from "theme-ui"
 import BioContent from "gatsby-theme-blog/src/components/bio-content"
 
-const Bio = ({ post}) => {
+const Bio = ({ post }) => {
   const data = useStaticQuery(bioQuery)
   const {
     site: {
@@ -22,7 +22,7 @@ const Bio = ({ post}) => {
   } = data
 
   return (
-    <Flex css={css({ mb: post? 3:4, pb: post? 0:3, alignItems: `center` })}>
+    <Flex css={css({ mb: post ? 3 : 4, pb: post ? 0 : 3, alignItems: `center` })}>
       {avatar ? (
         <Image
           fixed={avatar.childImageSharp.fixed}

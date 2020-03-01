@@ -1,11 +1,14 @@
 /* https://github.com/KyleAMathews/typefaces/blob/master/packages/montserrat/index.css */
 
-
-
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
+}
 
+a {
+  box-shadow: 0 1px 0 0 currentColor;
+  color: #007acc;
+  text-decoration: none;
 }
 
 button,
@@ -14,28 +17,7 @@ optgroup,
 select,
 textarea {
   font: inherit;
-  font-style: inherit;
-  font-variant-ligatures: inherit;
-  font-variant-caps: inherit;
-  font-variant-numeric: inherit;
-  font-variant-east-asian: inherit;
-  font-weight: inherit;
-  font-stretch: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  font-family: inherit;
   margin: 0;
-}
-
-/* * {
-  line-height: 1.75;
-  font-size: 16px;
-} */
-
-a {
-  box-shadow: 0 1px 0 0 currentColor;
-  color: #007acc;
-  text-decoration: none;
 }
 
 
