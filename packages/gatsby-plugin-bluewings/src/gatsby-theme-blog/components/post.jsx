@@ -42,12 +42,21 @@ const Post = (all) => {
     <Layout location={location} title={title} langKey={langKey} maxWidth={max_width}>
       <SEO title={post.title} description={post.excerpt} />
       <main>
-        <Styled.h1>{post.title}</Styled.h1>
+        <Styled.h1
+             css={css({
+              // fontSize: 1,
+              mt: 4,
+              // mb: 3,
+            })}
+        
+        >{post.title}</Styled.h1>
         <Styled.p
           css={css({
             fontSize: 1,
-            mt: -3,
+            // mt: '-21px',
+            mt: -2,
             mb: 3,
+            fontFamily: `Montserrat_SemiBold, 'Apple SD Gothic NEO', helvetica, sans-serif`,
           })}
         >
           {post.date}

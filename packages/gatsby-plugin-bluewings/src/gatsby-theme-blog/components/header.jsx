@@ -2,22 +2,27 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { css, useColorMode, Styled } from 'theme-ui';
-// import Switch from "./switch"
+import Switch from "gatsby-theme-blog/src/components/switch"
 import Bio from 'gatsby-theme-blog/src/components/bio';
-// import sun from "../../assets/sun.png"
-// import moon from "../../assets/moon.png"
+import sun from "gatsby-theme-blog/assets/sun.png"
+import moon from "gatsby-theme-blog/assets/moon.png"
 
 const rootPath = `${__PATH_PREFIX__}/`;
 
 const Title = ({ children, location }) => {
   if (location.pathname === rootPath) {
     return (
+
       <Styled.h1
         css={css({
-          my: 0,
-          fontSize: 4,
+          mt: 0,
+          mb: 3,
+          pb: 2,
+          fontSize: 6,
+          wordBreak: 'keep-all'
         })}
       >
+        
         <Styled.a
           as={Link}
           css={css({
@@ -37,6 +42,7 @@ const Title = ({ children, location }) => {
         as="p"
         css={css({
           my: 0,
+          wordBreak: 'keep-all'
         })}
       >
         <Styled.a
@@ -44,7 +50,8 @@ const Title = ({ children, location }) => {
           css={css({
             boxShadow: `none`,
             textDecoration: `none`,
-            color: `primary`,
+            // color: `primary`,
+            color: 'text',
           })}
           to={`/`}
         >
@@ -57,27 +64,27 @@ const Title = ({ children, location }) => {
 
 const iconCss = [{ pointerEvents: `none`, margin: 4 }];
 
-// const checkedIcon = (
-//   <img
-//     alt="moon indicating dark mode"
-//     src={moon}
-//     width="16"
-//     height="16"
-//     role="presentation"
-//     css={iconCss}
-//   />
-// )
+const checkedIcon = (
+  <img
+    alt="moon indicating dark mode"
+    src={moon}
+    width="16"
+    height="16"
+    role="presentation"
+    css={iconCss}
+  />
+)
 
-// const uncheckedIcon = (
-//   <img
-//     alt="sun indicating light mode"
-//     src={sun}
-//     width="16"
-//     height="16"
-//     role="presentation"
-//     css={iconCss}
-//   />
-// )
+const uncheckedIcon = (
+  <img
+    alt="sun indicating light mode"
+    src={sun}
+    width="16"
+    height="16"
+    role="presentation"
+    css={iconCss}
+  />
+)
 
 export default ({ children, title, maxWidth, ...props }) => {
   const [colorMode, setColorMode] = useColorMode();
@@ -93,8 +100,9 @@ export default ({ children, title, maxWidth, ...props }) => {
         css={css({
           maxWidth: maxWidth || `container`,
           mx: `auto`,
-          px: 3,
-          pt: 4,
+          // px: 3,
+          // pt: 4,
+          // background: 'lightblue'
         })}
       >
         <div
@@ -102,18 +110,21 @@ export default ({ children, title, maxWidth, ...props }) => {
             display: `flex`,
             justifyContent: `space-between`,
             alignItems: `center`,
-            mb: 4,
+            // mt: 0,
+            // mb: 0,
+            my: 0,
+            // background: 'lightgreen'
           })}
         >
           <Title {...props}>{title}</Title>
           {children}
-          {/* <Switch
+          <Switch
             aria-label="Toggle dark mode"
             checkedIcon={checkedIcon}
             uncheckedIcon={uncheckedIcon}
             checked={isDark}
             onChange={toggleColorMode}
-          /> */}
+          />
         </div>
         {props.location.pathname === rootPath && <Bio />}
       </div>

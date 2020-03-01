@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { Link } from 'gatsby';
+import { Styled, css } from "theme-ui"
 
 const codeToLanguage = (() => {
   const dict = {
@@ -14,16 +15,25 @@ function Translations({ langKey, translations, slug, editOnGithub, filePath }) {
   if (translations && translations.length > 1) {
     const { origin } = (translations && translations[0]) || {};
     return (
-      <p
-        style={{
-          fontSize: '1em',
-          border: '1px solid var(--hr)',
+      <Styled.p
+        css={css({
+          p: '0.75em',
+          "border": "1px solid",
           borderRadius: '0.3em',
-          padding: '0.75em',
-          // background: "var(--translation-bg)",
-          background: 'yellow',
-          wordBreak: 'keep-all',
-        }}
+          "borderColor": "muted",
+          bg: "box"
+//           border-color: var(--theme-ui-colors-muted,hsla(0,0%,0%,0.2));
+// }
+        })}
+        // style={{
+        //   // fontSize: '1em',
+        //   // border: '1px solid var(--hr)',
+        //   // borderRadius: '0.3em',
+        //   padding: '0.75em',
+        //   // // background: "var(--translation-bg)",
+        //   // background: 'yellow',
+        //   // wordBreak: 'keep-all',
+        // }}
       >
         <span>Translated by readers into: </span>
         {(translations || []).map(({ langKey: langKey_, slug }, i) => (
@@ -52,7 +62,7 @@ function Translations({ langKey, translations, slug, editOnGithub, filePath }) {
             <Link to={`/${langKey}`}>View all translated posts</Link>{' '}
           </>
         )}
-      </p>
+      </Styled.p>
     );
   }
   return null;

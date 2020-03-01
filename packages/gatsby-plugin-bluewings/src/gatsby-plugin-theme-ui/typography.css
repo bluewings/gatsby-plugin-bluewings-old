@@ -1,5 +1,62 @@
 /* https://github.com/KyleAMathews/typefaces/blob/master/packages/montserrat/index.css */
 
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  box-shadow: 0 1px 0 0 currentColor;
+  color: #007acc;
+  text-decoration: none;
+}
+
+
+/* montserrat-600normal - latin */
+@font-face {
+  font-family: 'Montserrat_SemiBold';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src:
+    local('Montserrat SemiBold '),
+    local('Montserrat-SemiBold'),
+    url('~typeface-montserrat/files/montserrat-latin-600.woff2') format('woff2'),
+    /* Super Modern Browsers */
+    url('~typeface-montserrat/files/montserrat-latin-600.woff') format('woff');
+  /* Modern Browsers */
+}
+
+/* montserrat-600italic - latin */
+@font-face {
+  font-family: 'Montserrat_SemiBold';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 600;
+  src:
+    local('Montserrat SemiBold italic'),
+    local('Montserrat-SemiBolditalic'),
+    url('~typeface-montserrat/files/montserrat-latin-600italic.woff2') format('woff2'),
+    /* Super Modern Browsers */
+    url('~typeface-montserrat/files/montserrat-latin-600italic.woff') format('woff');
+  /* Modern Browsers */
+}
+
+/* montserrat-800italic - latin */
+@font-face {
+  font-family: 'Montserrat_ExtraBold';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 800;
+  src:
+    local('Montserrat ExtraBold italic'),
+    local('Montserrat-ExtraBolditalic'),
+    url('~typeface-montserrat/files/montserrat-latin-800italic.woff2') format('woff2'),
+    /* Super Modern Browsers */
+    url('~typeface-montserrat/files/montserrat-latin-800italic.woff') format('woff');
+  /* Modern Browsers */
+}
+
 /* montserrat-900normal - latin */
 @font-face {
   font-family: 'Montserrat_Black';
@@ -8,7 +65,8 @@
   font-weight: 900;
   src: local('Montserrat Black '), local('Montserrat-Black'),
     url('~typeface-montserrat/files/montserrat-latin-900.woff2') format('woff2'),
-    /* Super Modern Browsers */ url('~typeface-montserrat/files/montserrat-latin-900.woff') format('woff');
+    /* Super Modern Browsers */
+    url('~typeface-montserrat/files/montserrat-latin-900.woff') format('woff');
   /* Modern Browsers */
 }
 
@@ -20,6 +78,23 @@
   font-weight: 900;
   src: local('Montserrat Black italic'), local('Montserrat-Blackitalic'),
     url('~typeface-montserrat/files/montserrat-latin-900italic.woff2') format('woff2'),
-    /* Super Modern Browsers */ url('~typeface-montserrat/files/montserrat-latin-900italic.woff') format('woff');
+    /* Super Modern Browsers */
+    url('~typeface-montserrat/files/montserrat-latin-900italic.woff') format('woff');
+  /* Modern Browsers */
+}
+
+
+/* montserrat-800normal - latin */
+@font-face {
+  font-family: 'Montserrat_ExtraBold';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 800;
+  src:
+    local('Montserrat ExtraBold '),
+    local('Montserrat-ExtraBold'),
+    url('~typeface-montserrat/files/montserrat-latin-800.woff2') format('woff2'),
+    /* Super Modern Browsers */
+    url('~typeface-montserrat/files/montserrat-latin-800.woff') format('woff');
   /* Modern Browsers */
 }
