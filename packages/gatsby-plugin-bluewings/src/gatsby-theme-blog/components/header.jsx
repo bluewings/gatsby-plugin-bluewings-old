@@ -1,13 +1,13 @@
 // https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-theme-blog/src/components/header.js
-import React from "react"
-import { Link } from "gatsby"
-import { css, useColorMode, Styled } from "theme-ui"
+import React from 'react';
+import { Link } from 'gatsby';
+import { css, useColorMode, Styled } from 'theme-ui';
 // import Switch from "./switch"
-import Bio from "gatsby-theme-blog/src/components/bio"
+import Bio from 'gatsby-theme-blog/src/components/bio';
 // import sun from "../../assets/sun.png"
 // import moon from "../../assets/moon.png"
 
-const rootPath = `${__PATH_PREFIX__}/`
+const rootPath = `${__PATH_PREFIX__}/`;
 
 const Title = ({ children, location }) => {
   if (location.pathname === rootPath) {
@@ -30,7 +30,7 @@ const Title = ({ children, location }) => {
           {children}
         </Styled.a>
       </Styled.h1>
-    )
+    );
   } else {
     return (
       <Styled.h3
@@ -51,11 +51,11 @@ const Title = ({ children, location }) => {
           {children}
         </Styled.a>
       </Styled.h3>
-    )
+    );
   }
-}
+};
 
-const iconCss = [{ pointerEvents: `none`, margin: 4 }]
+const iconCss = [{ pointerEvents: `none`, margin: 4 }];
 
 // const checkedIcon = (
 //   <img
@@ -80,13 +80,13 @@ const iconCss = [{ pointerEvents: `none`, margin: 4 }]
 // )
 
 export default ({ children, title, maxWidth, ...props }) => {
-  const [colorMode, setColorMode] = useColorMode()
-  const isDark = colorMode === `dark`
-  const toggleColorMode = e => {
-    setColorMode(isDark ? `light` : `dark`)
-  }
+  const [colorMode, setColorMode] = useColorMode();
+  const isDark = colorMode === `dark`;
+  const toggleColorMode = (e) => {
+    setColorMode(isDark ? `light` : `dark`);
+  };
 
-  console.log(props)
+  console.log(props);
   return (
     <header>
       <div
@@ -118,5 +118,5 @@ export default ({ children, title, maxWidth, ...props }) => {
         {props.location.pathname === rootPath && <Bio />}
       </div>
     </header>
-  )
-}
+  );
+};

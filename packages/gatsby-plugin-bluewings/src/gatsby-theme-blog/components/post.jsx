@@ -1,14 +1,14 @@
 // https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-theme-blog/src/components/post.js
-import React from "react"
-import { Styled, css } from "theme-ui"
-import { DiscussionEmbed } from "disqus-react"
-import PostFooter from "gatsby-theme-blog/src/components/post-footer"
-import Layout from "gatsby-theme-blog/src/components/layout"
-import SEO from "gatsby-theme-blog/src/components/seo"
-import { MDXRenderer } from "gatsby-plugin-mdx"
-import Translations from "./translations"
+import React from 'react';
+import { Styled, css } from 'theme-ui';
+import { DiscussionEmbed } from 'disqus-react';
+import PostFooter from 'gatsby-theme-blog/src/components/post-footer';
+import Layout from 'gatsby-theme-blog/src/components/layout';
+import SEO from 'gatsby-theme-blog/src/components/seo';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
+import Translations from './translations';
 
-const Post = all => {
+const Post = (all) => {
   const {
     // data: {
     //   post,
@@ -21,30 +21,25 @@ const Post = all => {
     previous,
     next,
     pageContext,
-  } = all
-  console.log(">>>", all)
+  } = all;
+  console.log('>>>', all);
   const {
     post,
     site: {
       siteMetadata: { title },
     },
-  } = data
-  console.log("%c-=-=-=-=-=-=-=-=-", "background:yellow")
+  } = data;
+  console.log('%c-=-=-=-=-=-=-=-=-', 'background:yellow');
   // console.log({ data, post, pageContext })
   // console.log(post.parent && post.parent.frontmatter)
-  const { langKey, filePath } = post.fields || {}
-  const { translations, editOnGithub, disqusShortname } = pageContext || {}
-  const { max_width } = (post.parent && post.parent.frontmatter) || {}
-  console.log({ max_width })
+  const { langKey, filePath } = post.fields || {};
+  const { translations, editOnGithub, disqusShortname } = pageContext || {};
+  const { max_width } = (post.parent && post.parent.frontmatter) || {};
+  console.log({ max_width });
   //   editOnGithub: "https://github.com/bluewings/dev-dad/edit/master"
   // langKeyDefault: "en"
   return (
-    <Layout
-      location={location}
-      title={title}
-      langKey={langKey}
-      maxWidth={max_width}
-    >
+    <Layout location={location} title={title} langKey={langKey} maxWidth={max_width}>
       <SEO title={post.title} description={post.excerpt} />
       <main>
         <Styled.h1>{post.title}</Styled.h1>
@@ -78,7 +73,7 @@ const Post = all => {
         />
       )}
     </Layout>
-  )
-}
+  );
+};
 
-export default Post
+export default Post;

@@ -1,10 +1,9 @@
-import React from "react"
-import { css, Styled } from "theme-ui"
-import Header from "./header"
+// https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-theme-blog/src/components/layout.js
+import React from 'react';
+import { css, Styled } from 'theme-ui';
+import Header from './header';
 
 export default ({ children, maxWidth, ...props }) => {
-  console.log(">>>> LAYOUT", props)
-  console.log(maxWidth)
   return (
     <Styled.root>
       <Header {...props} maxWidth={maxWidth} />
@@ -21,5 +20,5 @@ export default ({ children, maxWidth, ...props }) => {
         </div>
       </div>
     </Styled.root>
-  )
-}
+  );
+};

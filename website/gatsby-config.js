@@ -2,17 +2,18 @@ module.exports = {
   // pathPrefix: '/gatsby-starter-mdx-blog',
   // Customize your site metadata:
   siteMetadata: {
-    title: "My Blog Title",
+    title: "개츠비 스타터 MDX",
     author: "My Name",
     description: "My site description...",
-    social: [{
+    social: [
+      {
         name: "twitter",
         url: "https://twitter.com/gatsbyjs",
       },
       {
         name: "github",
         url: "https://github.com/gatsbyjs",
-      }
+      },
     ],
   },
   plugins: [
