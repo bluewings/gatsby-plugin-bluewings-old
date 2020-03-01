@@ -5,7 +5,9 @@ import { DiscussionEmbed } from 'disqus-react';
 import PostFooter from 'gatsby-theme-blog/src/components/post-footer';
 import Layout from 'gatsby-theme-blog/src/components/layout';
 import SEO from 'gatsby-theme-blog/src/components/seo';
+import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
+import mdxComponents from './mdx-components';
 import Translations from './translations';
 
 const Post = (all) => {
@@ -43,13 +45,14 @@ const Post = (all) => {
       <SEO title={post.title} description={post.excerpt} />
       <main>
         <Styled.h1
-             css={css({
-              // fontSize: 1,
-              mt: 4,
-              // mb: 3,
-            })}
-        
-        >{post.title}</Styled.h1>
+          css={css({
+            // fontSize: 1,
+            mt: 4,
+            // mb: 3,
+          })}
+        >
+          {post.title}
+        </Styled.h1>
         <Styled.p
           css={css({
             fontSize: 1,
@@ -69,7 +72,9 @@ const Post = (all) => {
           editOnGithub={editOnGithub}
         />
         {/* <pre>{JSON.stringify({ langKey, translations })}</pre> */}
-        <MDXRenderer>{post.body}</MDXRenderer>
+        <MDXProvider components={mdxComponents}>
+          <MDXRenderer>{post.body}</MDXRenderer>
+        </MDXProvider>
       </main>
       <PostFooter {...{ previous, next }} />
       {disqusShortname && (

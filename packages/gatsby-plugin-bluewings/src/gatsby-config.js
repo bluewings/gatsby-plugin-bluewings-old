@@ -2,14 +2,11 @@ const tailwindcss = require('tailwindcss');
 
 module.exports = (options) => {
   return {
-    plugins: [
-      'gatsby-theme-blog',
-      {
+    plugins: [{
         resolve: 'gatsby-plugin-mdx',
         options: {
           extensions: ['.mdx', '.md'],
-          gatsbyRemarkPlugins: [
-            {
+          gatsbyRemarkPlugins: [{
               resolve: `${__dirname}/plugins/remark-snippet.js`,
             },
             {
@@ -27,6 +24,12 @@ module.exports = (options) => {
             },
           ],
           remarkPlugins: [require('remark-slug')],
+        },
+      },
+      {
+        resolve: 'gatsby-theme-blog',
+        options: {
+          mdxOtherwiseConfigured: true,
         },
       },
       {
