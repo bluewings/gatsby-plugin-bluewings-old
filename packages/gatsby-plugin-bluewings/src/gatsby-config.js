@@ -12,6 +12,9 @@ module.exports = (options) => {
               resolve: `${__dirname}/plugins/remark-snippet.js`,
             },
             {
+              resolve: 'gatsby-remark-vscode',
+            },
+            {
               resolve: 'gatsby-remark-images',
               options: {
                 maxWidth: 1380,
@@ -37,7 +40,7 @@ module.exports = (options) => {
       {
         resolve: 'gatsby-plugin-google-fonts',
         options: {
-          fonts: ['Montserrat:800', 'Black Han Sans', 'Open Sans', 'Gothic A1:400,700'],
+          fonts: ['Montserrat:800', 'Black Han Sans', 'Open Sans', 'Gothic A1:400,700', 'Noto Serif KR'],
         },
       },
       'gatsby-plugin-typescript',
