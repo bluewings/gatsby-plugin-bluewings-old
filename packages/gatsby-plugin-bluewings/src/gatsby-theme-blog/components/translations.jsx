@@ -10,13 +10,13 @@ const codeToLanguage = (() => {
   return (langKey) => dict[langKey] || langKey;
 })();
 
-function Translations({ langKey, langKeyDefault, translations: _translations, slug, editOnGithub, filePath }) {
-  const editUrl = editOnGithub && filePath && `${editOnGithub}${filePath}`;
+function Translations({ langKey, langKeyDefault, translations: _translations, slug,  editUrl }) {
+  // const editUrl = editOnGithub && filePath && `${editOnGithub}${filePath}`;
   const translations = _translations.filter((e) => {
     return e.langKey !== langKeyDefault
   })
 
-  // console.log({ langKeyDefault})
+  console.log({ langKeyDefault})
   if (translations && translations.length > 0) {
     const { origin } = (translations && translations[0]) || {};
     return (

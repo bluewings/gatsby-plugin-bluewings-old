@@ -21,11 +21,11 @@ module.exports = {
       resolve: "gatsby-plugin-bluewings",
       options: {
         langKeyDefault: "en",
-        // editOnGithub: {
-        //   url: "https://github.com/bluewings/gatsby-plugin-bluewings",
-        //   directory: "website",
-        //   branch: "master",
-        // },
+        editOnGithub: {
+          url: "https://github.com/bluewings/gatsby-plugin-bluewings",
+          directory: "website",
+          branch: "master",
+        },
         disqusShortname: "gatsby-starter-mdx-blog",
       },
     },

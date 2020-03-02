@@ -42,6 +42,7 @@ const Post = (all) => {
   console.log({ max_width });
   //   editOnGithub: "https://github.com/bluewings/dev-dad/edit/master"
   // langKeyDefault: "en"
+  const editUrl = editOnGithub && filePath && `${editOnGithub}${filePath}`;
   return (
     <Layout location={location} title={title} langKey={langKey} maxWidth={max_width}>
       <SEO title={post.title} description={post.excerpt} />
@@ -70,8 +71,9 @@ const Post = (all) => {
           langKey={langKey}
           translations={translations}
           slug={post.slug}
-          filePath={filePath}
-          editOnGithub={editOnGithub}
+          editUrl={editUrl}
+          // filePath={filePath}
+          // editOnGithub={editOnGithub}
           langKeyDefault={langKeyDefault}
         />
         {/* <pre>{JSON.stringify({ langKey, translations })}</pre> */}
@@ -79,7 +81,9 @@ const Post = (all) => {
           <MDXRenderer>{post.body}</MDXRenderer>
         </MDXProvider>
       </main>
-      <PostFooter {...{ previous, next }} />
+      <PostFooter {...{ previous, next }} 
+editUrl={editUrl}
+      />
       {disqusShortname && (
         <DiscussionEmbed
           shortname={disqusShortname}

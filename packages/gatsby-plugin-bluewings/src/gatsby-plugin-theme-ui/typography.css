@@ -3,6 +3,8 @@
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
+
+  transition: background-color 0.35s ease-out, color 0.35s ease-out;
 }
 
 a {

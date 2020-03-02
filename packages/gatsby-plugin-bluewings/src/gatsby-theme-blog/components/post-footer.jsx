@@ -4,13 +4,22 @@ import { Link } from "gatsby"
 import { css, Styled, Flex } from "theme-ui"
 import Bio from "gatsby-theme-blog/src/components/bio"
 
-const Footer = ({ previous, next }) => (
+const Footer = ({ previous, next,
+  editUrl,
+}) => (
   <footer
     css={css({
       mt: 4,
       pt: 3,
     })}
   >
+    {editUrl && (
+              <Styled.p>
+                <a href={editUrl} target="_blank" rel="noopener noreferrer">
+                Edit on GitHub
+                </a>
+              </Styled.p>
+            )}
     <Styled.hr />
     <Bio post={true} />
     {(previous || next) && (
