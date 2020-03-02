@@ -109,7 +109,8 @@ export default ({ children, title, maxWidth, ...props }) => {
           css={css({
             display: `flex`,
             justifyContent: `space-between`,
-            alignItems: `center`,
+            // alignItems: `center`,
+            alignItems: `flex-start`,
             // mt: 0,
             // mb: 0,
             my: 0,

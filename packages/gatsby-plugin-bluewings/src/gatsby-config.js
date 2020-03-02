@@ -41,7 +41,9 @@ module.exports = (options) => {
       {
         resolve: 'gatsby-plugin-google-fonts',
         options: {
-          fonts: ['Montserrat:800', 'Black Han Sans', 'Open Sans', 'Gothic A1:400,700', 'Noto Serif KR'],
+          fonts: ['Montserrat:800', 'Black Han Sans', 'Open Sans', 'Gothic A1:400,700', 'Noto Serif KR', 'M PLUS Rounded 1c:800',
+          // , 'M PLUS 1p:800'
+        ],
         },
       },
       'gatsby-plugin-typescript',

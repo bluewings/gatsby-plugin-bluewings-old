@@ -10,9 +10,14 @@ const codeToLanguage = (() => {
   return (langKey) => dict[langKey] || langKey;
 })();
 
-function Translations({ langKey, translations, slug, editOnGithub, filePath }) {
+function Translations({ langKey, langKeyDefault, translations: _translations, slug, editOnGithub, filePath }) {
   const editUrl = editOnGithub && filePath && `${editOnGithub}${filePath}`;
-  if (translations && translations.length > 1) {
+  const translations = _translations.filter((e) => {
+    return e.langKey !== langKeyDefault
+  })
+
+  // console.log({ langKeyDefault})
+  if (translations && translations.length > 0) {
     const { origin } = (translations && translations[0]) || {};
     return (
       <Styled.p
@@ -39,7 +44,7 @@ function Translations({ langKey, translations, slug, editOnGithub, filePath }) {
         {(translations || []).map(({ langKey: langKey_, slug }, i) => (
           <Fragment key={langKey_}>
             {langKey_ === langKey ? (
-              <b>{codeToLanguage(langKey_)}</b>
+              <span>{codeToLanguage(langKey_)}</span>
             ) : (
               <Link to={slug}>{codeToLanguage(langKey_)}</Link>
             )}

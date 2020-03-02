@@ -16,11 +16,13 @@ import colors from './colors';
 
 // console.log('>>> colors', colors)
 
+const switchSize = 60;
+
 let merged = merge(blogTheme, {
   colors,
   fonts: {
     body: `'Open Sans', 'Gothic A1', 'Apple SD Gothic NEO', helvetica, sans-serif`,
-    heading: `Montserrat_ExtraBold, Black Han Sans`,
+    heading: `Montserrat_ExtraBold, 'Black Han Sans', 'M PLUS Rounded 1c'`,
     monospace: 'Menlo, monospace',
   },
   fontWeights: {
@@ -61,6 +63,58 @@ let merged = merge(blogTheme, {
       textDecoration: 'none'
     },
 
+    // div: {
+    //   '&.switch-color-mode': {
+    //     // backgroundColor: 'yellow',
+    //     // border: '5px solid red',
+    //     // lineHeight: '1.5rem',
+    //     lineHeight: 0,
+    //     button: {
+    //       // background: 'yellow'
+    //       // width: switchSize,
+    //       // height: switchSize/ 2,
+    //       // padding: 0,
+    //       // border: 'none',
+    //       // background: 'transparent',
+    //       // overflow: 'hidden',
+    //       // cursor: 'pointer',
+    //       '.spinner': {
+    //         // pointerEvents: 'none',
+    //         // position: 'relative',
+    //         // width: switchSize,
+    //         // height: switchSize,
+    //         // // background: 'orange',
+    //         // transition: 'transform 0.67s linear',
+    //         // fontSize: 3,
+    //         // '.sun': {
+    //         //   position: 'absolute',
+    //         //   pointerEvents: 'none',
+    //         //   top: 0,
+    //         //   left: 0,
+    //         //   width: switchSize,
+    //         //   height: switchSize/ 2,
+    //         //   display: 'flex',
+    //         //   // background: 'lightblue',
+    //         //   justifyContent: 'center',
+    //         //   alignItems: 'center'
+    //         // },
+    //         // '.moon': {
+    //         //   position: 'absolute',
+    //         //   pointerEvents: 'none',
+    //         //   top: switchSize/ 2,
+    //         //   left: 0,
+    //         //   width: switchSize,
+    //         //   height: switchSize/ 2,
+    //         //   display: 'flex',
+    //         //   // background: 'lightyellow',
+    //         //   justifyContent: 'center',
+    //         //   alignItems: 'center',
+    //         //   transform: 'rotate(180deg)'
+    //         // }
+    //       }
+    //     }
+    //   }
+    // },
     // body: {
     //   margin: 0,
     //   padding: 0

@@ -72,14 +72,14 @@ const preToCodeBlock = (preProps) => {
 
 
 const mdxComponents = {
-  p: (props, a,b) => {
-    console.log('>>>>')
-    console.log(props)
-    console.log(a)
-    console.log('<<<<')
-    console.log();
-    return <Styled.p {...props} style={{ border: '1px solid blue' }} />;
-  },
+  // p: (props, a,b) => {
+  //   console.log('>>>>')
+  //   console.log(props)
+  //   console.log(a)
+  //   console.log('<<<<')
+  //   console.log();
+  //   return <Styled.p {...props} style={{ border: '1px solid blue' }} />;
+  // },
   pre: (preProps) => {
     // return <Prism {...preProps.children.props}  />;
     const props = preToCodeBlock(preProps);

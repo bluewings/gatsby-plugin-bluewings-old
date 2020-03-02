@@ -9,6 +9,7 @@ import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import mdxComponents from './mdx-components';
 import Translations from './translations';
+import Footer from "gatsby-theme-blog/src/components/home-footer"
 
 const Post = (all) => {
   const {
@@ -23,19 +24,20 @@ const Post = (all) => {
     previous,
     next,
     pageContext,
+    
   } = all;
   console.log('>>>', all);
   const {
     post,
     site: {
-      siteMetadata: { title },
+      siteMetadata: { title, social: socialLinks },
     },
   } = data;
   console.log('%c-=-=-=-=-=-=-=-=-', 'background:yellow');
   // console.log({ data, post, pageContext })
   // console.log(post.parent && post.parent.frontmatter)
   const { langKey, filePath } = post.fields || {};
-  const { translations, editOnGithub, disqusShortname } = pageContext || {};
+  const { translations, editOnGithub, disqusShortname, langKeyDefault } = pageContext || {};
   const { max_width } = (post.parent && post.parent.frontmatter) || {};
   console.log({ max_width });
   //   editOnGithub: "https://github.com/bluewings/dev-dad/edit/master"
@@ -70,6 +72,7 @@ const Post = (all) => {
           slug={post.slug}
           filePath={filePath}
           editOnGithub={editOnGithub}
+          langKeyDefault={langKeyDefault}
         />
         {/* <pre>{JSON.stringify({ langKey, translations })}</pre> */}
         <MDXProvider components={mdxComponents}>
@@ -86,6 +89,7 @@ const Post = (all) => {
           }}
         />
       )}
+      <Footer socialLinks={socialLinks} marginTop={0} />
     </Layout>
   );
 };
