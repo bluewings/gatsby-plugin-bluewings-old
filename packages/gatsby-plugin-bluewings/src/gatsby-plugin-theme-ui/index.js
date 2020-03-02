@@ -1,6 +1,10 @@
 import './typography.css';
 import blogTheme from 'gatsby-theme-blog/src/gatsby-plugin-theme-ui/index';
 import wavesTheme from "gatsby-theme-waves/src/gatsby-plugin-theme-ui/index"
+import nightOwl from '@theme-ui/prism/presets/oceanic-next.json'
+// import nightOwl from '@theme-ui/prism/presets/night-owl.json'
+import solarizedLight from '@theme-ui/prism/presets/prism.json'
+// import prism from '@theme-ui/prism/presets/theme-ui/'
 import merge from 'deepmerge';
 import colors from './colors';
 
@@ -10,7 +14,7 @@ import colors from './colors';
 
 
 
-console.log('>>> colors', colors)
+// console.log('>>> colors', colors)
 
 let merged = merge(blogTheme, {
   colors,
@@ -31,6 +35,18 @@ let merged = merge(blogTheme, {
 
   // },
   styles: {
+    // code: {
+    //   // ...nightOwl,
+    //   // ...prism,
+    //   ...solarizedLight,
+    // },
+    // modes: {
+    //   dark: {
+    //     code: {
+          
+    //     }
+    //   }
+    // },
     root: {
       margin: 0,
       padding: 0
@@ -100,28 +116,88 @@ let merged = merge(blogTheme, {
       mr: '-1.3125rem',
       p: '1.3125rem',
       borderRadius: [0, '0.3rem'],
+      '&.prism-code': {
+        '.token-line-highlight': {
+          // background: 'yellow',
+          // display: block;
+          mr: '-1.3125rem',
+          ml: '-1.3125rem',
+          pr: '1rem',
+          pl: '0.98437rem',
+          // bg: 'hsla(0,0%,100%,.125)',
+          borderLeft: '0.32813rem solid #FAC863'
+          // }
+
+        },
+        '&.light': {
+          ...nightOwl,
+          '.token-line-highlight': {
+            // background: 'yellow',
+            // display: block;
+            // mr: '-1.3125rem',
+            // ml: '-1.3125rem',
+            // pr: '1rem',
+            // pl: '0.98437rem',
+            bg: 'hsla(0,0%,100%,.125)',
+            // borderLeft: '0.32813rem solid #FAC863'
+            // }
+
+          }
+        },
+        '&.dark': {
+
+ 
+          ...solarizedLight,
+          // '.tag': {
+          //   '.punctuation': {
+          //     color: '#999'
+          //   },
+          // },
+          backgroundColor: '#fdf6e3',
+          '.punctuation': {
+            color: '#999 !important'
+          },
+
+          // backgroundColor: 'box'
+          '.token-line-highlight': {
+
+
+            bg: 'rgba(0,0,0,.1)',
+            borderLeftColor: 'rgba(0,0,0,.5)',
+    // border-left: .32813rem solid rgba(0,0,0,.5);
+          }
+        }
+        
+      }
     },
+
 
   },
 
-  prism: {
-    background: 'yellow',
-    '.gatsby-highlight-code-line': {
-      // background: 'yellow',
+  // prism: {
+  //   background: 'yellow',
+  //   '.gatsby-highlight-code-line': {
+  //     // background: 'yellow',
 
-      display: 'block',
-      marginRight: '-1.3125rem',
-      marginLeft: '-1.3125rem',
-      paddingRight: '1em',
-      paddingLeft: '0.98437rem;',
-      backgroundColor: 'hsla(0,0%,100%,.125)',
-      borderLeft: '0.32813rem solid #f8c555',
-    }
-  }
+  //     display: 'block',
+  //     marginRight: '-1.3125rem',
+  //     marginLeft: '-1.3125rem',
+  //     paddingRight: '1em',
+  //     paddingLeft: '0.98437rem;',
+  //     backgroundColor: 'hsla(0,0%,100%,.125)',
+  //     borderLeft: '0.32813rem solid #f8c555',
+  //   }
+  // }
+
+  // prism: {
+
+  // }
 
 
 
 });
+// merged.styles.prism = merged.prism;
+delete merged.prism;
 
 merged = merge(merged, wavesTheme)
 
@@ -162,6 +238,6 @@ merged.space = [
 
 
 
-console.log(JSON.stringify(merged, null, 2))
+console.log(JSON.stringify(merged.styles.code, null, 2))
 
 export default merged;

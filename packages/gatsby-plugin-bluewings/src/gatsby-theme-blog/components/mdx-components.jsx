@@ -1,7 +1,9 @@
 import React from 'react';
 import { Styled, css } from 'theme-ui';
+// import Prism from '@theme-ui/prism'
 import rangeParser from 'parse-numeric-range';
 import { Code } from './code';
+import { Prism } from './prism';
 
 
 const preToCodeBlock = (preProps) => {
@@ -23,13 +25,14 @@ const preToCodeBlock = (preProps) => {
       // ...props,
       // props: { className, ...props },
     } = preProps.children.props;
+    let _className = className;
 
     const props = {
       ...preProps.children.props,
     };
 
-    delete props.children;
-    delete props.className;
+    // delete props.children;
+    // delete props.className;
     
     let language;
     let highlightLines;
@@ -41,6 +44,7 @@ const preToCodeBlock = (preProps) => {
         if (typeof option === 'string' && option.match(/^[0-9,-.]+$/)) {
           try {
             highlightLines = rangeParser.parse(option);
+            _className = 'language-' + language;
           } catch (err) {
             // ignore
           }
@@ -55,10 +59,12 @@ const preToCodeBlock = (preProps) => {
     })
     console.log('%c-=-=-=-=-=-=-=-', 'background:orange')
     return {
+      ...props,
+      className: _className,
       codeString: codeString.trim(),
       language,
       highlightLines,
-      ...props,
+      
     };
   }
   return null;
@@ -75,16 +81,25 @@ const mdxComponents = {
     return <Styled.p {...props} style={{ border: '1px solid blue' }} />;
   },
   pre: (preProps) => {
+    // return <Prism {...preProps.children.props}  />;
     const props = preToCodeBlock(preProps);
 
-    console.log('%c>>> preProps', 'background: yellow')
-    console.log(preProps)
+    // const getLineProps = (e ) => {
+    //   console.log('>>> L I N E  P R O P S');
+    //   console.log(e);
+    // }
     // if there's a codeString and some props, we passed the test
     if (props) {
+      console.log('%c>>> preProps', 'background: red;color:#fff')
+    console.log(props)
       // return <pre>
       //   {JSON.stringify(props,null, 2)}
       // </pre>
-      return <Code {...props} />;
+      // return <Code {...props} />;
+      return <Prism {...props} {...props} 
+      
+      // getLineProps={getLineProps}
+      />;
     }
     // it's possible to have a pre without a code in it
     return <Styled.pre {...preProps} />;
