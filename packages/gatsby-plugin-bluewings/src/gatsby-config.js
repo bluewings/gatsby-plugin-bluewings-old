@@ -2,11 +2,13 @@ const tailwindcss = require('tailwindcss');
 
 module.exports = (options) => {
   return {
-    plugins: [{
+    plugins: [
+      {
         resolve: 'gatsby-plugin-mdx',
         options: {
           extensions: ['.mdx', '.md'],
-          gatsbyRemarkPlugins: [{
+          gatsbyRemarkPlugins: [
+            {
               resolve: `${__dirname}/plugins/remark-snippet.js`,
             },
             {
@@ -41,9 +43,14 @@ module.exports = (options) => {
       {
         resolve: 'gatsby-plugin-google-fonts',
         options: {
-          fonts: ['Montserrat:800', 'Black Han Sans', 'Open Sans', 'Gothic A1:400,700', 'Noto Serif KR', 'M PLUS Rounded 1c:800',
-          // , 'M PLUS 1p:800'
-        ],
+          fonts: [
+            'Montserrat:800',
+            'Black Han Sans',
+            'Open Sans',
+            'Gothic A1:400,700',
+            'Noto Serif KR',
+            'M PLUS Rounded 1c:800',
+          ],
         },
       },
       'gatsby-plugin-typescript',

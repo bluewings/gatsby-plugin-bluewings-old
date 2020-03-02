@@ -9,23 +9,10 @@ import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import mdxComponents from './mdx-components';
 import Translations from './translations';
-import Footer from "gatsby-theme-blog/src/components/home-footer"
+import Footer from 'gatsby-theme-blog/src/components/home-footer';
 
 const Post = (all) => {
-  const {
-    // data: {
-    //   post,
-    //   site: {
-    //     siteMetadata: { title },
-    //   },
-    // },
-    data,
-    location,
-    previous,
-    next,
-    pageContext,
-    
-  } = all;
+  const { data, location, previous, next, pageContext } = all;
   console.log('>>>', all);
   const {
     post,
@@ -33,15 +20,9 @@ const Post = (all) => {
       siteMetadata: { title, social: socialLinks },
     },
   } = data;
-  console.log('%c-=-=-=-=-=-=-=-=-', 'background:yellow');
-  // console.log({ data, post, pageContext })
-  // console.log(post.parent && post.parent.frontmatter)
   const { langKey, filePath } = post.fields || {};
   const { translations, editOnGithub, disqusShortname, langKeyDefault } = pageContext || {};
   const { max_width } = (post.parent && post.parent.frontmatter) || {};
-  console.log({ max_width });
-  //   editOnGithub: "https://github.com/bluewings/dev-dad/edit/master"
-  // langKeyDefault: "en"
   const editUrl = editOnGithub && filePath && `${editOnGithub}${filePath}`;
   return (
     <Layout location={location} title={title} langKey={langKey} maxWidth={max_width}>
@@ -81,9 +62,7 @@ const Post = (all) => {
           <MDXRenderer>{post.body}</MDXRenderer>
         </MDXProvider>
       </main>
-      <PostFooter {...{ previous, next }} 
-editUrl={editUrl}
-      />
+      <PostFooter {...{ previous, next }} editUrl={editUrl} />
       {disqusShortname && (
         <DiscussionEmbed
           shortname={disqusShortname}

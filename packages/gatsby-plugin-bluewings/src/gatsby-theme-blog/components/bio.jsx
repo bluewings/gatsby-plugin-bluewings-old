@@ -6,20 +6,20 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
-import { Styled, css, Flex } from "theme-ui"
-import BioContent from "gatsby-theme-blog/src/components/bio-content"
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+import Image from 'gatsby-image';
+import { Styled, css, Flex } from 'theme-ui';
+import BioContent from 'gatsby-theme-blog/src/components/bio-content';
 
 const Bio = ({ post }) => {
-  const data = useStaticQuery(bioQuery)
+  const data = useStaticQuery(bioQuery);
   const {
     site: {
       siteMetadata: { author },
     },
     avatar,
-  } = data
+  } = data;
 
   return (
     <Flex css={css({ mb: post ? 3 : 4, pb: post ? 0 : 3, alignItems: `center` })}>
@@ -51,8 +51,8 @@ const Bio = ({ post }) => {
         <BioContent />
       </Styled.div>
     </Flex>
-  )
-}
+  );
+};
 
 const bioQuery = graphql`
   query Bluewings_BioQuery {
@@ -69,6 +69,6 @@ const bioQuery = graphql`
       }
     }
   }
-`
+`;
 
-export default Bio
+export default Bio;

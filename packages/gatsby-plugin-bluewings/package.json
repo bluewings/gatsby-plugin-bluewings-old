@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-bluewings",
-  "version": "0.3.31",
+  "version": "0.3.32",
   "author": {
     "name": "Sung Won Cha",
     "email": "mygenie3@naver.com"
@@ -64,7 +64,7 @@
     "typescript": "^3.8.2"
   },
   "scripts": {
-    "prestart_old": "rm -rf ./dist && rm -rf tsconfig.tsbuildinfo && cd ./src && copy ./gatsby-* ../dist && copy ./tailwind.* ../dist && copy ./plugins/* ../dist",
+    "format": "prettier --write '{gatsby-*.js,src/**/*.{js,jsx,ts,tsx,json,css,scss},content/**/*.{js,jsx,ts,tsx,json,css,scss}}'",
     "prestart": "rm -rf ./dist && rm -rf tsconfig.tsbuildinfo && cd ./src && copy ./tailwind.* ../dist ",
     "start": "rollup -c --watch"
   },

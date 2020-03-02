@@ -1,6 +1,6 @@
 // https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-theme-blog/src/components/home-footer.js
-import React, { Fragment } from "react"
-import { Styled, css } from "theme-ui"
+import React, { Fragment } from 'react';
+import { Styled, css } from 'theme-ui';
 
 const Footer = ({ socialLinks = [], marginTop }) => (
   <footer
@@ -26,5 +26,6 @@ const Footer = ({ socialLinks = [], marginTop }) => (
       </Fragment>
     ))}
   </footer>
-)
-export default Footer
+);
+
+export default Footer;

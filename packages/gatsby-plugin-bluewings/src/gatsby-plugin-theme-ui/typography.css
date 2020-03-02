@@ -2,9 +2,8 @@
 
 body {
   margin: 0;
-  -webkit-font-smoothing: antialiased;
-
   transition: background-color 0.35s ease-out, color 0.35s ease-out;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -22,19 +21,15 @@ textarea {
   margin: 0;
 }
 
-
 /* montserrat-600normal - latin */
 @font-face {
   font-family: 'Montserrat_SemiBold';
   font-style: normal;
   font-display: swap;
   font-weight: 600;
-  src:
-    local('Montserrat SemiBold '),
-    local('Montserrat-SemiBold'),
+  src: local('Montserrat SemiBold '), local('Montserrat-SemiBold'),
     url('~typeface-montserrat/files/montserrat-latin-600.woff2') format('woff2'),
-    /* Super Modern Browsers */
-    url('~typeface-montserrat/files/montserrat-latin-600.woff') format('woff');
+    /* Super Modern Browsers */ url('~typeface-montserrat/files/montserrat-latin-600.woff') format('woff');
   /* Modern Browsers */
 }
 
@@ -44,12 +39,21 @@ textarea {
   font-style: italic;
   font-display: swap;
   font-weight: 600;
-  src:
-    local('Montserrat SemiBold italic'),
-    local('Montserrat-SemiBolditalic'),
+  src: local('Montserrat SemiBold italic'), local('Montserrat-SemiBolditalic'),
     url('~typeface-montserrat/files/montserrat-latin-600italic.woff2') format('woff2'),
-    /* Super Modern Browsers */
-    url('~typeface-montserrat/files/montserrat-latin-600italic.woff') format('woff');
+    /* Super Modern Browsers */ url('~typeface-montserrat/files/montserrat-latin-600italic.woff') format('woff');
+  /* Modern Browsers */
+}
+
+/* montserrat-600italic - latin */
+@font-face {
+  font-family: 'Montserrat_SemiBold';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 600;
+  src: local('Montserrat SemiBold italic'), local('Montserrat-SemiBolditalic'),
+    url('~typeface-montserrat/files/montserrat-latin-600italic.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('~typeface-montserrat/files/montserrat-latin-600italic.woff') format('woff');
   /* Modern Browsers */
 }
 
@@ -59,12 +63,9 @@ textarea {
   font-style: italic;
   font-display: swap;
   font-weight: 800;
-  src:
-    local('Montserrat ExtraBold italic'),
-    local('Montserrat-ExtraBolditalic'),
+  src: local('Montserrat ExtraBold italic'), local('Montserrat-ExtraBolditalic'),
     url('~typeface-montserrat/files/montserrat-latin-800italic.woff2') format('woff2'),
-    /* Super Modern Browsers */
-    url('~typeface-montserrat/files/montserrat-latin-800italic.woff') format('woff');
+    /* Super Modern Browsers */ url('~typeface-montserrat/files/montserrat-latin-800italic.woff') format('woff');
   /* Modern Browsers */
 }
 
@@ -76,8 +77,7 @@ textarea {
   font-weight: 900;
   src: local('Montserrat Black '), local('Montserrat-Black'),
     url('~typeface-montserrat/files/montserrat-latin-900.woff2') format('woff2'),
-    /* Super Modern Browsers */
-    url('~typeface-montserrat/files/montserrat-latin-900.woff') format('woff');
+    /* Super Modern Browsers */ url('~typeface-montserrat/files/montserrat-latin-900.woff') format('woff');
   /* Modern Browsers */
 }
 
@@ -89,11 +89,9 @@ textarea {
   font-weight: 900;
   src: local('Montserrat Black italic'), local('Montserrat-Blackitalic'),
     url('~typeface-montserrat/files/montserrat-latin-900italic.woff2') format('woff2'),
-    /* Super Modern Browsers */
-    url('~typeface-montserrat/files/montserrat-latin-900italic.woff') format('woff');
+    /* Super Modern Browsers */ url('~typeface-montserrat/files/montserrat-latin-900italic.woff') format('woff');
   /* Modern Browsers */
 }
-
 
 /* montserrat-800normal - latin */
 @font-face {
@@ -101,11 +99,8 @@ textarea {
   font-style: normal;
   font-display: swap;
   font-weight: 800;
-  src:
-    local('Montserrat ExtraBold '),
-    local('Montserrat-ExtraBold'),
+  src: local('Montserrat ExtraBold '), local('Montserrat-ExtraBold'),
     url('~typeface-montserrat/files/montserrat-latin-800.woff2') format('woff2'),
-    /* Super Modern Browsers */
-    url('~typeface-montserrat/files/montserrat-latin-800.woff') format('woff');
+    /* Super Modern Browsers */ url('~typeface-montserrat/files/montserrat-latin-800.woff') format('woff');
   /* Modern Browsers */
 }

@@ -5,33 +5,21 @@ import Header from './header';
 
 export default ({ children, maxWidth, ...props }) => {
   return (
-    <Styled.root css={css({
-      px: 7,
-      py: 8,
-
-    })}>
-      
-
-
-      {/* <div style={{border: '1px solid red', margin: '-1px'}}> */}
-      {/* <div style={{background: 'lightyellow'}}> */}
+    <Styled.root
+      css={css({
+        px: 7,
+        py: 8,
+      })}
+    >
       <Header {...props} maxWidth={maxWidth} />
-      <div style={{
-        // background: 'yellow'
-      }}>
-        <div
-          css={css({
-            maxWidth: maxWidth || `container`,
-            mx: `auto`,
-            // px: 3,
-            // py: 4,
-            // background: '#fff'
-          })}
-        >
-          {children}
-        </div>
+      <div
+        css={css({
+          maxWidth: maxWidth || `container`,
+          mx: `auto`,
+        })}
+      >
+        {children}
       </div>
-      {/* </div> */}
     </Styled.root>
   );
 };

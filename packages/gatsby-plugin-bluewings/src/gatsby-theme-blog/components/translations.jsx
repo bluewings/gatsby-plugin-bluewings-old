@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Link } from 'gatsby';
-import { Styled, css } from "theme-ui"
+import { Styled, css } from 'theme-ui';
 
 const codeToLanguage = (() => {
   const dict = {
@@ -10,35 +10,20 @@ const codeToLanguage = (() => {
   return (langKey) => dict[langKey] || langKey;
 })();
 
-function Translations({ langKey, langKeyDefault, translations: _translations, slug,  editUrl }) {
-  // const editUrl = editOnGithub && filePath && `${editOnGithub}${filePath}`;
-  const translations = _translations.filter((e) => {
-    return e.langKey !== langKeyDefault
-  })
+function Translations({ langKey, langKeyDefault, translations: _translations, slug, editUrl }) {
+  const translations = _translations.filter((e) => e.langKey !== langKeyDefault);
 
-  console.log({ langKeyDefault})
   if (translations && translations.length > 0) {
     const { origin } = (translations && translations[0]) || {};
     return (
       <Styled.p
         css={css({
           p: '0.75em',
-          "border": "1px solid",
+          border: '1px solid',
           borderRadius: '0.3em',
-          "borderColor": "muted",
-          bg: "box"
-//           border-color: var(--theme-ui-colors-muted,hsla(0,0%,0%,0.2));
-// }
+          borderColor: 'muted',
+          bg: 'box',
         })}
-        // style={{
-        //   // fontSize: '1em',
-        //   // border: '1px solid var(--hr)',
-        //   // borderRadius: '0.3em',
-        //   padding: '0.75em',
-        //   // // background: "var(--translation-bg)",
-        //   // background: 'yellow',
-        //   // wordBreak: 'keep-all',
-        // }}
       >
         <span>Translated by readers into: </span>
         {(translations || []).map(({ langKey: langKey_, slug }, i) => (

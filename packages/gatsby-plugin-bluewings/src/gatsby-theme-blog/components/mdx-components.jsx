@@ -5,7 +5,6 @@ import rangeParser from 'parse-numeric-range';
 import { Code } from './code';
 import { Prism } from './prism';
 
-
 const preToCodeBlock = (preProps) => {
   if (
     // children is MDXTag
@@ -18,7 +17,7 @@ const preToCodeBlock = (preProps) => {
   ) {
     console.log(preProps.children.props);
     // we have a <pre><code> situation
-    
+
     const {
       children: codeString,
       className,
@@ -33,7 +32,7 @@ const preToCodeBlock = (preProps) => {
 
     // delete props.children;
     // delete props.className;
-    
+
     let language;
     let highlightLines;
     if (typeof className === 'string') {
@@ -51,25 +50,24 @@ const preToCodeBlock = (preProps) => {
         }
       }
     }
-    console.log({codeString, className, 
-    
+    console.log({
+      codeString,
+      className,
+
       language,
       highlightLines,
-    
-    })
-    console.log('%c-=-=-=-=-=-=-=-', 'background:orange')
+    });
+    console.log('%c-=-=-=-=-=-=-=-', 'background:orange');
     return {
       ...props,
       className: _className,
       codeString: codeString.trim(),
       language,
       highlightLines,
-      
     };
   }
   return null;
 };
-
 
 const mdxComponents = {
   // p: (props, a,b) => {
@@ -90,20 +88,24 @@ const mdxComponents = {
     // }
     // if there's a codeString and some props, we passed the test
     if (props) {
-      console.log('%c>>> preProps', 'background: red;color:#fff')
-    console.log(props)
+      console.log('%c>>> preProps', 'background: red;color:#fff');
+      console.log(props);
       // return <pre>
       //   {JSON.stringify(props,null, 2)}
       // </pre>
       // return <Code {...props} />;
-      return <Prism {...props} {...props} 
-      
-      // getLineProps={getLineProps}
-      />;
+      return (
+        <Prism
+          {...props}
+          {...props}
+
+          // getLineProps={getLineProps}
+        />
+      );
     }
     // it's possible to have a pre without a code in it
     return <Styled.pre {...preProps} />;
-  }
+  },
 
   // pre: (props) => {
   //   return <h2>pre</h2>

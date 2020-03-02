@@ -1,12 +1,10 @@
 // https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-theme-blog/src/components/post-footer.js
-import React from "react"
-import { Link } from "gatsby"
-import { css, Styled, Flex } from "theme-ui"
-import Bio from "gatsby-theme-blog/src/components/bio"
+import React from 'react';
+import { Link } from 'gatsby';
+import { css, Styled, Flex } from 'theme-ui';
+import Bio from 'gatsby-theme-blog/src/components/bio';
 
-const Footer = ({ previous, next,
-  editUrl,
-}) => (
+const Footer = ({ previous, next, editUrl }) => (
   <footer
     css={css({
       mt: 4,
@@ -14,12 +12,12 @@ const Footer = ({ previous, next,
     })}
   >
     {editUrl && (
-              <Styled.p>
-                <a href={editUrl} target="_blank" rel="noopener noreferrer">
-                Edit on GitHub
-                </a>
-              </Styled.p>
-            )}
+      <Styled.p>
+        <a href={editUrl} target="_blank" rel="noopener noreferrer">
+          Edit on GitHub
+        </a>
+      </Styled.p>
+    )}
     <Styled.hr />
     <Bio post={true} />
     {(previous || next) && (
@@ -29,24 +27,19 @@ const Footer = ({ previous, next,
           flexWrap: `wrap`,
           justifyContent: `space-between`,
           listStyle: `none`,
-          // padding: 0,
           p: 0,
           mt: 0,
           mb: 3,
         })}
       >
-        <li css={css({
-          mb: 2
-        })}>
+        <li css={css({ mb: 2 })}>
           {previous && (
             <Styled.a as={Link} to={previous.slug} rel="prev">
               ← {previous.title}
             </Styled.a>
           )}
         </li>
-        <li css={css({
-          mb: 2
-        })}>
+        <li css={css({ mb: 2 })}>
           {next && (
             <Styled.a as={Link} to={next.slug} rel="next">
               {next.title} →
@@ -56,6 +49,6 @@ const Footer = ({ previous, next,
       </Flex>
     )}
   </footer>
-)
+);
 
-export default Footer
+export default Footer;
