@@ -1,16 +1,16 @@
 ---
 title: Hello World
 date: "2015-05-01T22:12:03.284Z"
-# max_width: 60rem
+max_width: 60rem
 ---
 
-import Counter from "./Counter"
-import { JsonTree } from "gatsby-plugin-bluewings"
-import data from "./data"
+import Counter from './Counter';
+import { JsonTree } from 'gatsby-plugin-bluewings';
+import data from './data';
 
 <Counter />
 
----
+-----
 
 <JsonTree data={data} />
 
@@ -24,7 +24,7 @@ class HelloMessage extends React.Component {
     );
   }
 }
- 
+
 ReactDOM.render(
   <HelloMessage name="Taylor" />,
   document.getElementById('hello-example')
