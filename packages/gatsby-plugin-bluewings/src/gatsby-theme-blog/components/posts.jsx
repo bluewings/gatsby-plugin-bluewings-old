@@ -2,7 +2,6 @@
 import React, { Fragment } from 'react';
 import { Link } from 'gatsby';
 import { Styled, css } from 'theme-ui';
-
 import Layout from 'gatsby-theme-blog/src/components/layout';
 import SEO from 'gatsby-theme-blog/src/components/seo';
 import Footer from 'gatsby-theme-blog/src/components/home-footer';

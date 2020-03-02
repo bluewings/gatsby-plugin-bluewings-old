@@ -1,9 +1,6 @@
 // https://github.com/system-ui/theme-ui/blob/master/packages/prism/src/index.js
-/** @jsx jsx */
-/* eslint react/jsx-key: 0 */
 import Highlight, { defaultProps } from 'prism-react-renderer';
-import { jsx, Styled, useColorMode } from 'theme-ui';
-// import { useColorMode } from 'theme-ui'
+import { Styled, useColorMode } from 'theme-ui';
 
 const aliases = {
   js: 'javascript',

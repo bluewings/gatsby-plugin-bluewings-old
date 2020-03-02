@@ -5,12 +5,7 @@ import { css, Styled, Flex } from 'theme-ui';
 import Bio from 'gatsby-theme-blog/src/components/bio';
 
 const Footer = ({ previous, next, editUrl }) => (
-  <footer
-    css={css({
-      mt: 4,
-      pt: 3,
-    })}
-  >
+  <footer css={css({ mt: 4, pt: 3 })}>
     {editUrl && (
       <Styled.p>
         <a href={editUrl} target="_blank" rel="noopener noreferrer">

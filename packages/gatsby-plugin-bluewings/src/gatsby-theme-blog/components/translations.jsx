@@ -6,6 +6,7 @@ const codeToLanguage = (() => {
   const dict = {
     en: 'English',
     ko: '한국어',
+    ja: '日本語',
   };
   return (langKey) => dict[langKey] || langKey;
 })();

@@ -11,9 +11,7 @@ import mdxComponents from './mdx-components';
 import Translations from './translations';
 import Footer from 'gatsby-theme-blog/src/components/home-footer';
 
-const Post = (all) => {
-  const { data, location, previous, next, pageContext } = all;
-  console.log('>>>', all);
+const Post = ({ data, location, previous, next, pageContext }) => {
   const {
     post,
     site: {
@@ -28,19 +26,10 @@ const Post = (all) => {
     <Layout location={location} title={title} langKey={langKey} maxWidth={max_width}>
       <SEO title={post.title} description={post.excerpt} />
       <main>
-        <Styled.h1
-          css={css({
-            // fontSize: 1,
-            mt: 4,
-            // mb: 3,
-          })}
-        >
-          {post.title}
-        </Styled.h1>
+        <Styled.h1 css={css({ mt: 4 })}>{post.title}</Styled.h1>
         <Styled.p
           css={css({
             fontSize: 1,
-            // mt: '-21px',
             mt: -2,
             mb: 3,
             fontFamily: `Montserrat_SemiBold, 'Apple SD Gothic NEO', helvetica, sans-serif`,
@@ -53,24 +42,15 @@ const Post = (all) => {
           translations={translations}
           slug={post.slug}
           editUrl={editUrl}
-          // filePath={filePath}
-          // editOnGithub={editOnGithub}
           langKeyDefault={langKeyDefault}
         />
-        {/* <pre>{JSON.stringify({ langKey, translations })}</pre> */}
         <MDXProvider components={mdxComponents}>
           <MDXRenderer>{post.body}</MDXRenderer>
         </MDXProvider>
       </main>
       <PostFooter {...{ previous, next }} editUrl={editUrl} />
       {disqusShortname && (
-        <DiscussionEmbed
-          shortname={disqusShortname}
-          config={{
-            identifier: post.id,
-            title: title,
-          }}
-        />
+        <DiscussionEmbed shortname={disqusShortname} config={{ identifier: post.id, title: title }} />
       )}
       <Footer socialLinks={socialLinks} marginTop={0} />
     </Layout>

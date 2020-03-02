@@ -1,12 +1,12 @@
 import './typography.css';
 import blogTheme from 'gatsby-theme-blog/src/gatsby-plugin-theme-ui/index';
 import wavesTheme from 'gatsby-theme-waves/src/gatsby-plugin-theme-ui/index';
-import nightOwl from '@theme-ui/prism/presets/oceanic-next.json';
-import solarizedLight from '@theme-ui/prism/presets/prism.json';
+import presetOceanicNext from '@theme-ui/prism/presets/oceanic-next.json';
+import presetPrism from '@theme-ui/prism/presets/prism.json';
 import merge from 'deepmerge';
 import colors from './colors';
 
-let merged = merge(blogTheme, {
+let theme = merge(blogTheme, {
   colors,
   fonts: {
     body: `'Open Sans', 'Gothic A1', 'Apple SD Gothic NEO', helvetica, sans-serif`,
@@ -14,8 +14,6 @@ let merged = merge(blogTheme, {
     monospace: 'Menlo, monospace',
   },
   fontWeights: {
-    // "body": 400,
-    // "bold": 700,
     heading: 400,
   },
   styles: {
@@ -23,12 +21,10 @@ let merged = merge(blogTheme, {
       margin: 0,
       padding: 0,
     },
-
     a: {
       color: '#007acc',
       textDecoration: 'none',
     },
-
     blockquote: {
       marginLeft: ['-1.3125rem', '-1.75rem'],
       marginRight: [0, '1.75rem'],
@@ -38,17 +34,14 @@ let merged = merge(blogTheme, {
       paddingRight: 0,
       paddingTop: 0,
       marginBottom: '1.75rem',
-
       fontStyle: 'italic',
       borderLeft: '0.32813rem solid',
       borderColor: 'text',
-
       fontSize: '1.20112rem',
       lineHeight: '1.75rem',
       fontFamily: `'Merriweather','Georgia',serif`,
       fontWeight: 600,
     },
-
     pre: {
       mb: '1.75rem',
       ml: '-1.3125rem',
@@ -61,23 +54,20 @@ let merged = merge(blogTheme, {
           ml: '-1.3125rem',
           pr: '1rem',
           pl: '0.98437rem',
-
           borderLeft: '0.32813rem solid #FAC863',
         },
         '&.light': {
-          ...nightOwl,
+          ...presetOceanicNext,
           '.token-line-highlight': {
             bg: 'hsla(0,0%,100%,.125)',
           },
         },
         '&.dark': {
-          ...solarizedLight,
-
+          ...presetPrism,
           backgroundColor: '#fdf6e3',
           '.punctuation': {
             color: '#999 !important',
           },
-
           '.token-line-highlight': {
             bg: 'rgba(0,0,0,.1)',
             borderLeftColor: 'rgba(0,0,0,.5)',
@@ -88,18 +78,15 @@ let merged = merge(blogTheme, {
   },
 });
 
-delete merged.prism;
+theme = merge(theme, wavesTheme);
 
-merged = merge(merged, wavesTheme);
-
-merged.sizes = {
-  container: 630,
+theme = {
+  ...theme,
+  sizes: { container: 630 },
+  breakpoints: ['672px'],
+  fontSizes: [12.154524686917982, 13.32085131842997, 16, 23.08319849451542, 27.725793726205854, 40, 64.2456],
+  space: [0, 7, 14, 28, 56, 112, 224, 21, 42],
+  prism: undefined,
 };
 
-merged.breakpoints = ['672px'];
-
-merged.fontSizes = [12.154524686917982, 13.32085131842997, 16, 23.08319849451542, 27.725793726205854, 40, 64.2456];
-
-merged.space = [0, 7, 14, 28, 56, 112, 224, 21, 42];
-
-export default merged;
+export default theme;
